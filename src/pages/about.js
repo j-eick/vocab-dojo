@@ -9,7 +9,6 @@ export default function AboutPage() {
 				<title key="title">About</title>
 				<meta key="description" name="description" content="About" />
 			</Head>
-			<h1>About</h1>
 		</Layout>
 	);
 }
