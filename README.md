@@ -2,6 +2,8 @@
 
 A vocabulary app that makes the learning more fun by gamifying the process.
 
+![](./public/Screenshot%202023-01-25%20at%2021.28.45.png)
+
 <hr>
 
 This is a template for [Next.js](https://nextjs.org/) with additional tools.
