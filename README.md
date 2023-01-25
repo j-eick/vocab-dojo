@@ -1,4 +1,8 @@
-# Next.js App
+# Vocab-Dojo
+
+A vocabulary app that makes the learning more fun by gamifying the process.
+
+<hr>
 
 This is a template for [Next.js](https://nextjs.org/) with additional tools.
 
