@@ -4,10 +4,10 @@ console.clear();
 
 const StyledNav = styled.nav`
 	display: grid;
-	align-items: center;
-	justify-content: space-around;
 	position: absolute;
 	bottom: 0;
+	align-items: center;
+	justify-content: space-around;
 	width: 90vw;
 	min-height: 60px;
 	background-color: lightgoldenrodyellow;
