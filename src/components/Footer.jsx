@@ -31,8 +31,8 @@ export default function Footer() {
 		<StyledNav>
 			<StyledUl>
 				<StyledLi>🏠</StyledLi>
-				<StyledLi>📂</StyledLi>
 				<StyledLi>🧸</StyledLi>
+				<StyledLi>📂</StyledLi>
 			</StyledUl>
 		</StyledNav>
 	);
