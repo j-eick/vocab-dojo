@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 
 console.clear();
@@ -30,9 +31,19 @@ export default function Footer() {
 	return (
 		<StyledNav>
 			<StyledUl>
-				<StyledLi>🏠</StyledLi>
-				<StyledLi>🧸</StyledLi>
-				<StyledLi>📂</StyledLi>
+				<StyledLi>
+					<Link href="/" aria-label="Home">
+						🏠
+					</Link>
+				</StyledLi>
+				<StyledLi>
+					<Link href="/add-vocab" aria-label="Add new vocab">
+						🧸
+					</Link>
+				</StyledLi>
+				<StyledLi>
+					<Link href="/list">📂</Link>
+				</StyledLi>
 			</StyledUl>
 		</StyledNav>
 	);

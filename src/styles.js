@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	:root {
 		--fontsize_HeaderTitle: 2rem;
+		--fontsize_defaultText: 1.5rem;
 	}
 
 	*,
@@ -13,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		font: inherit;
-		font-size: 1rem;
+		font-size: var(--fontsize_defaultText);
 		vertical-align: baseline;
 	}
 
