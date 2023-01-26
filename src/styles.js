@@ -1,6 +1,11 @@
 import {createGlobalStyle} from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+
+	:root {
+		--fontsize_HeaderTitle: 2rem;
+	}
+
 	*,
 	*::before,
 	*::after {
@@ -29,10 +34,12 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	html {
+		background: black;
 		font-size: 62.5%;
 	}
 
 	body {
-		background: pink;
+		min-height: 100vh;
+		background: lightcoral;
 	}
 `;
