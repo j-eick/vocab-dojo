@@ -15,8 +15,7 @@ const StyledH1 = styled.h1`
 console.clear();
 
 export default function Header() {
-	const router = useRouter();
-	const {asPath} = router;
+	const {asPath} = useRouter();
 
 	return (
 		<>
