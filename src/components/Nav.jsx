@@ -27,7 +27,7 @@ const StyledLi = styled.li`
 	border-radius: 20px;
 `;
 
-export default function Footer() {
+export default function Nav() {
 	return (
 		<StyledNav>
 			<StyledUl>
@@ -42,7 +42,7 @@ export default function Footer() {
 					</Link>
 				</StyledLi>
 				<StyledLi>
-					<Link href="/list">📂</Link>
+					<Link href="/vocabList">📂</Link>
 				</StyledLi>
 			</StyledUl>
 		</StyledNav>

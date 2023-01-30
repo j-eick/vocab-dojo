@@ -1,5 +1,6 @@
 // import {nanoid} from 'nanoid';
 import Head from 'next/head';
+// import {useRouter} from 'next/router';
 // import {useState} from 'react';
 
 // import Button from '../components/Button';
@@ -7,7 +8,10 @@ import Layout from '../components/Layout';
 // import useFetch from '../hooks/useFetch';
 // import useStore from '../hooks/useStore';
 
+console.clear();
+
 export default function HomePage() {
+	// const {asPath} = useRouter();
 	// // Data
 	// const {data, loading, error} = useFetch('/api/hello');
 
@@ -23,7 +27,7 @@ export default function HomePage() {
 	return (
 		<Layout>
 			<Head>
-				<title key="title">My Project</title>
+				<title key="title">Vocab-Dojo</title>
 				<meta key="description" name="description" content="This is my project" />
 			</Head>
 		</Layout>

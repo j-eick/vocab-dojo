@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import Footer from './Footer.jsx';
 import Header from './Header.jsx';
+import Nav from './Nav.jsx';
 
 const StyledMain = styled.main`
 	display: grid;
@@ -15,7 +15,7 @@ export default function Layout({children}) {
 		<>
 			<Header />
 			<StyledMain>{children}</StyledMain>
-			<Footer />
+			<Nav />
 		</>
 	);
 }
