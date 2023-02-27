@@ -5,7 +5,7 @@ const StyledHeader = styled.header`
 	display: grid;
 	place-items: center;
 	width: 90%;
-	height: 100px;
+	height: 90px;
 	background-color: yellow;
 `;
 const StyledH1 = styled.h1`

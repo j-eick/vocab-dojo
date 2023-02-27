@@ -41,6 +41,6 @@ export const GlobalStyle = createGlobalStyle`
 
 	body {
 		min-height: 100vh;
-		background: lightcoral;
+		background: lightgray;
 	}
 `;
