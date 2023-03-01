@@ -5,7 +5,16 @@ import Layout from '../components/Layout';
 
 console.clear();
 
-const StyledForm = styled.form``;
+const StyledForm = styled.form`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+const StyledSubmit = styled.input.attrs({
+	type: 'submit',
+})`
+	width: 40%;
+`;
 
 export default function AddVocab() {
 	const [card, setCard] = useState({
@@ -50,7 +59,7 @@ export default function AddVocab() {
 					</label>
 
 					{/*  ----- SUBMIT -----  */}
-					<input type="submit" value="Submit" />
+					<StyledSubmit type="submit" value="Submit" />
 				</StyledForm>
 			</Layout>
 		</>

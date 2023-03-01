@@ -25,8 +25,8 @@ const ResponsiveContainer = styled.div`
 `;
 
 const StyledMain = styled.main`
-	display: grid;
-	grid-template-columns: 1fr;
+	display: flex;
+	justify-content: center;
 	min-height: calc(100vh - 160px);
 	background-color: orange;
 `;
