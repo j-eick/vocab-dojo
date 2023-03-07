@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import Layout from '../components/Layout';
 
-export default function AboutPage() {
+export default function VocabListPage() {
 	return (
 		<Layout>
 			<Head>
