@@ -65,6 +65,7 @@ const StyledSubmit = styled.input.attrs({
 export default function AddVocabForm() {
 	const getVocabList = vocabStore(state => state.vocabList);
 	const addVocabs = vocabStore(state => state.addVocabs);
+	const removeVocabs = vocabStore(state => state.removeVocabs);
 
 	const handleSubmit = event => {
 		event.preventDefault();
@@ -84,8 +85,9 @@ export default function AddVocabForm() {
 		event.target.elements.backSide.value = '';
 	};
 
-	const handleTrash = e => {
-		console.log(e);
+	const handleRemoveItem = itemToRemove => {
+		removeVocabs(itemToRemove);
+		console.log('clicked the bin ' + itemToRemove);
 	};
 
 	return (
@@ -106,11 +108,11 @@ export default function AddVocabForm() {
 					<StyledCardLi key={card.front}>
 						<StyledCardSide>
 							{card.front}
-							<Trash onClick={handleTrash}>🗑</Trash>
+							<Trash onClick={() => handleRemoveItem(card)}>🗑</Trash>
 						</StyledCardSide>
 						<StyledCardSide>
 							{card.back}
-							<Trash onClick={handleTrash}>🗑</Trash>
+							<Trash onClick={() => handleRemoveItem(card)}>🗑</Trash>
 						</StyledCardSide>
 					</StyledCardLi>
 				))}
