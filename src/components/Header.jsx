@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledHeader = styled.header`
 	display: grid;
 	place-items: center;
-	width: 90%;
+	width: 100%;
 	height: 90px;
 	background-color: yellow;
 `;

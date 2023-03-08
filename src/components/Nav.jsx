@@ -5,7 +5,6 @@ console.clear();
 
 const StyledNav = styled.nav`
 	display: grid;
-	/* position: absolute; */
 	bottom: 0;
 	align-items: center;
 	justify-content: space-around;

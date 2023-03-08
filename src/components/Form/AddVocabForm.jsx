@@ -1,5 +1,6 @@
-import {useState, useEffect} from 'react';
 import styled from 'styled-components';
+
+import {vocabStore} from '../../hooks/useStore';
 
 console.clear();
 
@@ -10,23 +11,29 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 `;
-const StyledCardList = styled.ul`
+const StyledCardUl = styled.ul`
 	width: 80%;
 	padding: 20px;
+	margin-top: 50px;
 
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	gap: 20px;
+
 	background-color: yellow;
 `;
-const StyledCard = styled.li`
+const StyledCardLi = styled.li`
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: center;
+
 	gap: 10px;
 
 	border: 1px solid black;
 `;
 const StyledCardSide = styled.p`
+	position: relative;
 	width: 120px;
 
 	display: flex;
@@ -35,6 +42,13 @@ const StyledCardSide = styled.p`
 	/* margin: 20px; */
 	padding: 20px;
 	background-color: #62aed4;
+`;
+
+const Trash = styled.span`
+	position: absolute;
+	top: -7px;
+	right: -5px;
+	font-size: 1.5rem;
 `;
 
 const StyledForm = styled.form`
@@ -49,35 +63,31 @@ const StyledSubmit = styled.input.attrs({
 `;
 
 export default function AddVocabForm() {
-	const [card, setCard] = useState([
-		{
-			frontSide: 'this is',
-			backSide: 'an expamle',
-		},
-	]);
-
-	useEffect(() => {
-		console.log(card);
-	}, []);
+	const getVocabList = vocabStore(state => state.vocabList);
+	const addVocabs = vocabStore(state => state.addVocabs);
+	const removeVocabs = vocabStore(state => state.removeVocabs);
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		const front = event.target.elements.frontSide.value;
-		const back = event.target.elements.backSide.value;
 
-		if ((front && back) !== '') {
-			setCard(prevState => [
-				...prevState,
-				{
-					frontSide: front,
-					backSide: back,
-				},
-			]);
+		const frontside = event.target.elements.frontSide.value;
+		const backside = event.target.elements.backSide.value;
+
+		if ((frontside && backside) !== '') {
+			addVocabs({
+				front: frontside,
+				back: backside,
+			});
 		} else {
 			alert('both sides need input!');
 		}
 		event.target.elements.frontSide.value = '';
 		event.target.elements.backSide.value = '';
+	};
+
+	const handleRemoveItem = itemToRemove => {
+		removeVocabs(itemToRemove);
+		console.log('clicked the bin ' + itemToRemove);
 	};
 
 	return (
@@ -93,14 +103,20 @@ export default function AddVocabForm() {
 				</label>
 				<StyledSubmit type="submit" name="submit" />
 			</StyledForm>
-			<StyledCardList>
-				{card.map(item => (
-					<StyledCard key={item.frontSide}>
-						<StyledCardSide>{item.frontSide}</StyledCardSide>
-						<StyledCardSide>{item.backSide}</StyledCardSide>
-					</StyledCard>
+			<StyledCardUl>
+				{getVocabList.map(card => (
+					<StyledCardLi key={card.front}>
+						<StyledCardSide>
+							{card.front}
+							<Trash onClick={() => handleRemoveItem(card)}>🗑</Trash>
+						</StyledCardSide>
+						<StyledCardSide>
+							{card.back}
+							<Trash onClick={() => handleRemoveItem(card)}>🗑</Trash>
+						</StyledCardSide>
+					</StyledCardLi>
 				))}
-			</StyledCardList>
+			</StyledCardUl>
 		</Wrapper>
 	);
 }
