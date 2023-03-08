@@ -17,7 +17,8 @@ const ResponsiveContainer = styled.div`
 	min-height: 100%;
 
 	@media (min-width: 376px) {
-		position: relative;
+		/* position: relative; */
+
 		width: 375px;
 		min-height: 667px;
 		border: 1px solid black;
@@ -27,7 +28,7 @@ const ResponsiveContainer = styled.div`
 const StyledMain = styled.main`
 	display: flex;
 	justify-content: center;
-	min-height: calc(100vh - 160px);
+	min-height: calc(667px - 160px);
 	background-color: orange;
 `;
 
