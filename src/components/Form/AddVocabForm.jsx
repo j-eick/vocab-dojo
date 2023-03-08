@@ -1,5 +1,6 @@
-import {useState, useEffect} from 'react';
 import styled from 'styled-components';
+
+import {useStore} from '../../hooks/useStore';
 
 console.clear();
 
@@ -49,16 +50,7 @@ const StyledSubmit = styled.input.attrs({
 `;
 
 export default function AddVocabForm() {
-	const [card, setCard] = useState([
-		{
-			frontSide: 'this is',
-			backSide: 'an expamle',
-		},
-	]);
-
-	useEffect(() => {
-		console.log(card);
-	}, []);
+	const getVocabList = useStore(state => state.vocabList);
 
 	const handleSubmit = event => {
 		event.preventDefault();
@@ -66,13 +58,7 @@ export default function AddVocabForm() {
 		const back = event.target.elements.backSide.value;
 
 		if ((front && back) !== '') {
-			setCard(prevState => [
-				...prevState,
-				{
-					frontSide: front,
-					backSide: back,
-				},
-			]);
+			// code
 		} else {
 			alert('both sides need input!');
 		}
@@ -94,7 +80,7 @@ export default function AddVocabForm() {
 				<StyledSubmit type="submit" name="submit" />
 			</StyledForm>
 			<StyledCardList>
-				{card.map(item => (
+				{getVocabList.map(item => (
 					<StyledCard key={item.frontSide}>
 						<StyledCardSide>{item.frontSide}</StyledCardSide>
 						<StyledCardSide>{item.backSide}</StyledCardSide>
