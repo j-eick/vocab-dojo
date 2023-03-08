@@ -11,18 +11,20 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 `;
-const StyledCardList = styled.ul`
+const StyledCardUl = styled.ul`
 	width: 80%;
 	padding: 20px;
 
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	gap: 20px;
 	background-color: yellow;
 `;
-const StyledCard = styled.li`
+const StyledCardLi = styled.li`
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+
 	gap: 10px;
 
 	border: 1px solid black;
@@ -84,14 +86,14 @@ export default function AddVocabForm() {
 				</label>
 				<StyledSubmit type="submit" name="submit" />
 			</StyledForm>
-			<StyledCardList>
+			<StyledCardUl>
 				{getVocabList.map(card => (
-					<StyledCard key={card.front}>
+					<StyledCardLi key={card.front}>
 						<StyledCardSide>{card.front}</StyledCardSide>
 						<StyledCardSide>{card.back}</StyledCardSide>
-					</StyledCard>
+					</StyledCardLi>
 				))}
-			</StyledCardList>
+			</StyledCardUl>
 		</Wrapper>
 	);
 }
