@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {useStore} from '../../hooks/useStore';
+import {vocabStore} from '../../hooks/useStore';
 
 console.clear();
 
@@ -50,8 +50,8 @@ const StyledSubmit = styled.input.attrs({
 `;
 
 export default function AddVocabForm() {
-	const getVocabList = useStore(state => state.vocabList);
-	const addVocabs = useStore(state => state.addVocabs);
+	const getVocabList = vocabStore(state => state.vocabList);
+	const addVocabs = vocabStore(state => state.addVocabs);
 
 	const handleSubmit = event => {
 		event.preventDefault();
