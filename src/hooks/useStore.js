@@ -3,14 +3,14 @@ import create from 'zustand';
 export const useStore = create(set => ({
 	vocabList: [
 		{
-			frontSide: 'this is',
-			backSide: 'an expamle',
+			front: 'this is',
+			back: 'an expamle',
 		},
 	],
 
-	addVocabs: () =>
+	addVocabs: newCard =>
 		set(state => ({
-			list: state.newWord,
+			vocabList: [...state.vocabList, newCard],
 		})),
 }));
 
