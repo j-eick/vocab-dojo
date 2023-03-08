@@ -3,6 +3,40 @@ import styled from 'styled-components';
 
 console.clear();
 
+const Wrapper = styled.div`
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+const StyledCardList = styled.ul`
+	width: 80%;
+	padding: 20px;
+
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	background-color: yellow;
+`;
+const StyledCard = styled.li`
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	border: 1px solid black;
+`;
+const StyledCardSide = styled.p`
+	width: 120px;
+
+	display: flex;
+	justify-content: center;
+
+	/* margin: 20px; */
+	padding: 20px;
+	background-color: #62aed4;
+`;
+
 const StyledForm = styled.form`
 	display: flex;
 	flex-direction: column;
@@ -17,8 +51,8 @@ const StyledSubmit = styled.input.attrs({
 export default function AddVocabForm() {
 	const [card, setCard] = useState([
 		{
-			frontSide: 'front',
-			backSide: 'back',
+			frontSide: 'this is',
+			backSide: 'an expamle',
 		},
 	]);
 
@@ -47,16 +81,26 @@ export default function AddVocabForm() {
 	};
 
 	return (
-		<StyledForm onSubmit={handleSubmit}>
-			<label htmlFor="frontSide">
-				Frontside:
-				<input id="frontSide" type="text" name="frontSide" />
-			</label>
-			<label htmlFor="backSide">
-				Backside:
-				<input id="backSide" type="text" name="backSide" />
-			</label>
-			<StyledSubmit type="submit" name="submit" />
-		</StyledForm>
+		<Wrapper>
+			<StyledForm onSubmit={handleSubmit}>
+				<label htmlFor="frontSide">
+					Frontside:
+					<input id="frontSide" type="text" name="frontSide" />
+				</label>
+				<label htmlFor="backSide">
+					Backside:
+					<input id="backSide" type="text" name="backSide" />
+				</label>
+				<StyledSubmit type="submit" name="submit" />
+			</StyledForm>
+			<StyledCardList>
+				{card.map(item => (
+					<StyledCard key={item.frontSide}>
+						<StyledCardSide>{item.frontSide}</StyledCardSide>
+						<StyledCardSide>{item.backSide}</StyledCardSide>
+					</StyledCard>
+				))}
+			</StyledCardList>
+		</Wrapper>
 	);
 }
