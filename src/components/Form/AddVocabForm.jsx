@@ -51,14 +51,19 @@ const StyledSubmit = styled.input.attrs({
 
 export default function AddVocabForm() {
 	const getVocabList = useStore(state => state.vocabList);
+	const addVocabs = useStore(state => state.addVocabs);
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		const front = event.target.elements.frontSide.value;
-		const back = event.target.elements.backSide.value;
 
-		if ((front && back) !== '') {
-			// code
+		const frontside = event.target.elements.frontSide.value;
+		const backside = event.target.elements.backSide.value;
+
+		if ((frontside && backside) !== '') {
+			addVocabs({
+				front: frontside,
+				back: backside,
+			});
 		} else {
 			alert('both sides need input!');
 		}
@@ -80,10 +85,10 @@ export default function AddVocabForm() {
 				<StyledSubmit type="submit" name="submit" />
 			</StyledForm>
 			<StyledCardList>
-				{getVocabList.map(item => (
-					<StyledCard key={item.frontSide}>
-						<StyledCardSide>{item.frontSide}</StyledCardSide>
-						<StyledCardSide>{item.backSide}</StyledCardSide>
+				{getVocabList.map(card => (
+					<StyledCard key={card.front}>
+						<StyledCardSide>{card.front}</StyledCardSide>
+						<StyledCardSide>{card.back}</StyledCardSide>
 					</StyledCard>
 				))}
 			</StyledCardList>
