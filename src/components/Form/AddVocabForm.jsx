@@ -14,22 +14,26 @@ const Wrapper = styled.div`
 const StyledCardUl = styled.ul`
 	width: 80%;
 	padding: 20px;
+	margin-top: 50px;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	gap: 20px;
+
 	background-color: yellow;
 `;
 const StyledCardLi = styled.li`
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 
 	gap: 10px;
 
 	border: 1px solid black;
 `;
 const StyledCardSide = styled.p`
+	position: relative;
 	width: 120px;
 
 	display: flex;
@@ -38,6 +42,13 @@ const StyledCardSide = styled.p`
 	/* margin: 20px; */
 	padding: 20px;
 	background-color: #62aed4;
+`;
+
+const Trash = styled.span`
+	position: absolute;
+	top: -7px;
+	right: -5px;
+	font-size: 1.5rem;
 `;
 
 const StyledForm = styled.form`
@@ -73,6 +84,10 @@ export default function AddVocabForm() {
 		event.target.elements.backSide.value = '';
 	};
 
+	const handleTrash = e => {
+		console.log(e);
+	};
+
 	return (
 		<Wrapper>
 			<StyledForm onSubmit={handleSubmit}>
@@ -89,8 +104,14 @@ export default function AddVocabForm() {
 			<StyledCardUl>
 				{getVocabList.map(card => (
 					<StyledCardLi key={card.front}>
-						<StyledCardSide>{card.front}</StyledCardSide>
-						<StyledCardSide>{card.back}</StyledCardSide>
+						<StyledCardSide>
+							{card.front}
+							<Trash onClick={handleTrash}>🗑</Trash>
+						</StyledCardSide>
+						<StyledCardSide>
+							{card.back}
+							<Trash onClick={handleTrash}>🗑</Trash>
+						</StyledCardSide>
 					</StyledCardLi>
 				))}
 			</StyledCardUl>
