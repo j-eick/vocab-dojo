@@ -8,7 +8,6 @@ const Canvas = styled.div`
 	place-items: center;
 	width: 100vw;
 	min-height: 100vh;
-
 	background-color: lightgreen;
 `;
 
@@ -17,8 +16,6 @@ const ResponsiveContainer = styled.div`
 	min-height: 100%;
 
 	@media (min-width: 376px) {
-		/* position: relative; */
-
 		width: 375px;
 		min-height: 667px;
 		border: 1px solid black;
