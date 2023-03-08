@@ -6,6 +6,18 @@ export const vocabStore = create(set => ({
 			front: 'this is',
 			back: 'an expamle',
 		},
+		{
+			front: 'yo',
+			back: 'mama',
+		},
+		{
+			front: 'yes',
+			back: 'sir',
+		},
+		{
+			front: 'ha',
+			back: 'douken',
+		},
 	],
 
 	addVocabs: newCard =>
