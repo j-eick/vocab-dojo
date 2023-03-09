@@ -22,7 +22,7 @@ export default function Header() {
 			<StyledHeader>
 				{asPath === '/' ? <StyledH1>Vocab-Dojo</StyledH1> : null}
 				{asPath === '/add-vocab' ? <StyledH1>Add new Word</StyledH1> : null}
-				{asPath === '/vocabList' ? <StyledH1>Vocab-List</StyledH1> : null}
+				{asPath === '/allVocabs' ? <StyledH1>Vocab-List</StyledH1> : null}
 			</StyledHeader>
 		</>
 		//<StyledH1>General Info</StyledH1>
