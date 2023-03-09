@@ -16,7 +16,8 @@
     "storybook:build": "build-storybook -s public",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "toc": "npx markdown-toc@1 README.md -i"
+    "toc": "npx markdown-toc@1 README.md -i",
+    "clear": "rm -rf .next cache out"
   },
   "dependencies": {
     "axios": "0.27.2",
