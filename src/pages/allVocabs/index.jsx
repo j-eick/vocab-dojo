@@ -2,9 +2,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 // import UnorderedList from '../components/UnorderedLists';
-import {getAllVocabs} from '../services/vocabServices';
+import {getAllVocabs} from '../../services/vocabServices';
 
 const StyledUl = styled.ul`
 	width: 80%;
@@ -18,17 +18,24 @@ const StyledUl = styled.ul`
 
 const StyledLi = styled.li`
 	width: 100%;
-	padding: 0 10px;
 
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	gap: 15px;
 
 	align-items: left;
 	background-color: lightcoral;
 `;
 
+const StyledCard = styled.div`
+	padding: 0 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 15px;
+`;
+
 const StyledP = styled.p`
+	padding: 0 10px;
 	background-color: lightcyan;
 `;
 
@@ -49,9 +56,11 @@ export default function VocabListPage({allVocabs}) {
 			<StyledUl>
 				{allVocabs.map(word => (
 					<StyledLi key={word.id}>
-						<Link href={`/vocabList/${word.id}`}>
-							<StyledP>{word.front}</StyledP>
-							<StyledP>{word.back}</StyledP>
+						<Link href={`/allVocabs/${word.id}`}>
+							<StyledCard>
+								<StyledP>{word.front}</StyledP>
+								<StyledP>{word.back}</StyledP>
+							</StyledCard>
 						</Link>
 					</StyledLi>
 				))}

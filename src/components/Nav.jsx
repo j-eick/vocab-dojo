@@ -41,7 +41,8 @@ export default function Nav() {
 					</Link>
 				</StyledLi>
 				<StyledLi>
-					<Link href="/vocabList">📂</Link>
+					{/* <Link href={`/allVocabs/${id}`}>📂</Link> */}
+					<Link href="/allVocabs">📂</Link>
 				</StyledLi>
 			</StyledUl>
 		</StyledNav>
