@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Layout from '../components/Layout';
 // import UnorderedList from '../components/UnorderedLists';
-import {getAllVocabs} from '../services/vocabServices';
+import {getAllFlashcards} from '../services/vocabServices';
 
 const StyledUl = styled.ul`
 	width: 80%;
@@ -33,7 +33,7 @@ const StyledP = styled.p`
 `;
 
 export const getStaticProps = () => {
-	const allVocabs = getAllVocabs();
+	const allVocabs = getAllFlashcards();
 	return {
 		props: {allVocabs},
 	};
