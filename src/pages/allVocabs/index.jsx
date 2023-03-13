@@ -1,52 +1,27 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
 // import UnorderedList from '../components/UnorderedLists';
-import {getAllVocabs} from '../../services/vocabServices';
+import {getAllFlashcards} from '../../services/vocabServices';
 
-const StyledUl = styled.ul`
-	width: 80%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 15px;
+import {StyledUl, StyledLi, StyledCard, StyledP} from './styled.js';
 
-	border: 1px solid black;
-`;
+/**
+ * Retrieves all Flashcards from MongoDB
+ * => Needs to wait for server => asnyc function
+ *
+ * @returns { front, back } of the cards
+ */
+export async function getStaticProps() {
+	const allFlashcards = await getAllFlashcards();
 
-const StyledLi = styled.li`
-	width: 100%;
-
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 15px;
-
-	align-items: left;
-	background-color: lightcoral;
-`;
-
-const StyledCard = styled.div`
-	padding: 0 20px;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 15px;
-`;
-
-const StyledP = styled.p`
-	padding: 0 10px;
-	background-color: lightcyan;
-`;
-
-export const getStaticProps = () => {
-	const allVocabs = getAllVocabs();
 	return {
-		props: {allVocabs},
+		props: {allFlashcards},
 	};
-};
+}
 
-export default function VocabListPage({allVocabs}) {
+export default function VocabListPage({allFlashcards}) {
 	return (
 		<Layout>
 			<Head>
@@ -54,7 +29,7 @@ export default function VocabListPage({allVocabs}) {
 				<meta key="description" name="description" content="About" />
 			</Head>
 			<StyledUl>
-				{allVocabs.map(word => (
+				{allFlashcards.map(word => (
 					<StyledLi key={word.id}>
 						<Link href={`/allVocabs/${word.id}`}>
 							<StyledCard>

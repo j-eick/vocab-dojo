@@ -1,7 +1,7 @@
-import {getAllVocabs, getVocabById} from '../../services/vocabServices';
+import {getAllFlashcards, getVocabById} from '../../services/vocabServices';
 
 export const getStaticPaths = () => {
-	const allVocabs = getAllVocabs();
+	const allVocabs = getAllFlashcards();
 	return {
 		paths: allVocabs.map(vocab => ({
 			params: {
