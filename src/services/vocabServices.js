@@ -24,7 +24,7 @@ export async function getAllFlashcards() {
 	 *   information that I need.
 	 */
 	const flashcards = await Flashcard.find();
-	// console.log(flashcards);
+	console.log(flashcards);
 
 	return flashcards.map(({front, back}) => {
 		return {front, back};

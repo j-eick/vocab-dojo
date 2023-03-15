@@ -15,6 +15,7 @@ import {StyledUl, StyledLi, StyledCard, StyledP} from './styled.js';
  */
 export async function getStaticProps() {
 	const allFlashcards = await getAllFlashcards();
+	console.log(allFlashcards);
 
 	return {
 		props: {allFlashcards},
@@ -29,12 +30,12 @@ export default function VocabListPage({allFlashcards}) {
 				<meta key="description" name="description" content="About" />
 			</Head>
 			<StyledUl>
-				{allFlashcards.map(word => (
-					<StyledLi key={word.id}>
-						<Link href={`/allVocabs/${word.id}`}>
+				{allFlashcards.map(card => (
+					<StyledLi key={card.front}>
+						<Link href={`/allVocabs/${card.front}`}>
 							<StyledCard>
-								<StyledP>{word.front}</StyledP>
-								<StyledP>{word.back}</StyledP>
+								<StyledP>{card.front}</StyledP>
+								<StyledP>{card.back}</StyledP>
 							</StyledCard>
 						</Link>
 					</StyledLi>
