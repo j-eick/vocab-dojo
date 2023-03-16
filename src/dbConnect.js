@@ -34,7 +34,7 @@ export const dbConnect = async () => {
 		// this is network request, hence I need to wait for answer
 		// ==> await
 		await mongoose.connect(MONGODB_URL);
-		console.log('Connected to MongoDB');
+		console.log('Connected to MongoDB...');
 	} catch (error) {
 		console.error('error: could not connect', error.message);
 	}
