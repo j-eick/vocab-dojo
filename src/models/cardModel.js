@@ -1,4 +1,4 @@
-import {mongoose} from 'mongoose';
+import mongoose from 'mongoose';
 
 const {Schema} = mongoose;
 
@@ -25,6 +25,6 @@ const flashcardSchema = new Schema(
  * - uses the model or newly registers the model, if it's using the
  *   model now for the first time
  */
-const Flashcard = mongoose.models.Flashcards || mongoose.model('Flashcards', flashcardSchema);
+const Flashcard = mongoose.models.Flashcard || mongoose.model('Flashcard', flashcardSchema);
 
 export default Flashcard;
