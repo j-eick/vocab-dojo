@@ -15,10 +15,11 @@ import {StyledUl, StyledLi, StyledCard, StyledP} from './styled.js';
  */
 export async function getStaticProps() {
 	const allFlashcards = await getAllFlashcards();
-	console.log(allFlashcards);
+	console.log('inside getStaticProps: ' + allFlashcards);
 
 	return {
 		props: {allFlashcards},
+		// allFlashcards: JSON.parse(JSON.stringify(allFlashcards)),
 	};
 }
 
