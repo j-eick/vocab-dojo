@@ -24,11 +24,25 @@ export async function getAllFlashcards() {
 	 *   information that I need.
 	 */
 	const flashcards = await Flashcard.find();
-	console.log(flashcards);
 
-	return flashcards.map(({front, back}) => {
-		return {front, back};
-	});
+	console.log('Fetching array from MongoDB: ' + flashcards);
+
+	try {
+		// return {
+		// 	flashcards: JSON.parse(JSON.stringify(flashcards)),
+		// };
+		return flashcards.map(({front, back}) => {
+			return {front, back};
+		});
+	} catch (error) {
+		console.log('Trying to parse...' + error);
+	}
+
+	// return flashcards;
+
+	// return flashcards.map(({front, back}) => {
+	// 	return {front, back};
+	// });
 }
 
 // export function getVocabById(id) {
