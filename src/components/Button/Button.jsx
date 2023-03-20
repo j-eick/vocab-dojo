@@ -14,7 +14,7 @@ export default function Button({type = 'button', children, ...props}) {
 
 const StyledButton = styled.button`
 	${({variant}) =>
-		variant === 'profileMenu' &&
+		variant === 'profileMenuModal' &&
 		css`
 			height: 70%;
 			width: 50px;
