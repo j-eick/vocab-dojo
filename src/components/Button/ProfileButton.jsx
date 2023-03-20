@@ -7,11 +7,11 @@ import Button from './Button';
 console.clear();
 
 export default function ProfileButton() {
-	const [modal, setModal] = useState(false);
+	const [modal, setModal] = useState(true);
 
 	return (
 		<>
-			<Button variant={'profileMenu'} onClick={() => setModal(!modal)}>
+			<Button variant={'profileMenuModal'} onClick={() => setModal(!modal)}>
 				<div>🙋🏻‍♂️</div>
 			</Button>
 			{!modal ? <ProfileMenuModal /> : null}
