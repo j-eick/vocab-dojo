@@ -4,11 +4,11 @@ import ProfileButton from './Button/ProfileButton';
 
 const StyledHeader = styled.header`
 	width: 100%;
-	height: 90px;
+	height: 100px;
 
 	padding: 0 5%;
 	display: flex;
-	align-items: end;
+	align-items: center;
 
 	background-color: yellow;
 `;
