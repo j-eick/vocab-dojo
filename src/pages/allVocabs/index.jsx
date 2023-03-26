@@ -6,6 +6,40 @@ import Layout from '../../components/Layout';
 // import UnorderedList from '../components/UnorderedLists';
 import {getAllVocabs} from '../../services/vocabServices';
 
+export const getStaticProps = () => {
+	const allVocabs = getAllVocabs();
+	return {
+		props: {allVocabs},
+	};
+};
+
+export default function VocabListPage({allVocabs}) {
+	return (
+		<Layout>
+			<Head>
+				<title key="title">VocabList</title>
+				<meta key="description" name="description" content="About" />
+			</Head>
+			<StyledUl>
+				{allVocabs.map(word => (
+					<StyledLi key={word.id}>
+						<Link href={`/allVocabs/${word.id}`}>
+							<StyledCard>
+								<StyledP>{word.front}</StyledP>
+								<StyledP>{word.back}</StyledP>
+							</StyledCard>
+						</Link>
+					</StyledLi>
+				))}
+			</StyledUl>
+		</Layout>
+	);
+}
+
+// #################################
+// #######    STYLING    ###########
+// #################################
+
 const StyledUl = styled.ul`
 	width: 80%;
 	display: flex;
@@ -38,33 +72,3 @@ const StyledP = styled.p`
 	padding: 0 10px;
 	background-color: lightcyan;
 `;
-
-export const getStaticProps = () => {
-	const allVocabs = getAllVocabs();
-	return {
-		props: {allVocabs},
-	};
-};
-
-export default function VocabListPage({allVocabs}) {
-	return (
-		<Layout>
-			<Head>
-				<title key="title">VocabList</title>
-				<meta key="description" name="description" content="About" />
-			</Head>
-			<StyledUl>
-				{allVocabs.map(word => (
-					<StyledLi key={word.id}>
-						<Link href={`/allVocabs/${word.id}`}>
-							<StyledCard>
-								<StyledP>{word.front}</StyledP>
-								<StyledP>{word.back}</StyledP>
-							</StyledCard>
-						</Link>
-					</StyledLi>
-				))}
-			</StyledUl>
-		</Layout>
-	);
-}
