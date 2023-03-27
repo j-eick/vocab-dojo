@@ -1,5 +1,8 @@
 // import {nanoid} from 'nanoid';
 import Head from 'next/head';
+
+// eslint-disable-next-line import/order
+import StartLearning from '../components/Button/StartLearning';
 // import {useRouter} from 'next/router';
 // import {useState} from 'react';
 
@@ -30,6 +33,8 @@ export default function HomePage() {
 				<title key="title">Vocab-Dojo</title>
 				<meta key="description" name="description" content="This is my project" />
 			</Head>
+
+			<StartLearning />
 		</Layout>
 	);
 }
