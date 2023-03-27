@@ -1,13 +1,12 @@
 // import {nanoid} from 'nanoid';
 import Head from 'next/head';
 
-// eslint-disable-next-line import/order
-import StartLearning from '../components/Button/StartLearning';
 // import {useRouter} from 'next/router';
 // import {useState} from 'react';
 
 // import Button from '../components/Button';
 import Layout from '../components/Layout';
+import StartSession from '../components/Links/StartSession';
 // import useFetch from '../hooks/useFetch';
 // import useStore from '../hooks/useStore';
 
@@ -34,7 +33,7 @@ export default function HomePage() {
 				<meta key="description" name="description" content="This is my project" />
 			</Head>
 
-			<StartLearning />
+			<StartSession />
 		</Layout>
 	);
 }
