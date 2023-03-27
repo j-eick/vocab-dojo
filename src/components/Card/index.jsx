@@ -8,14 +8,16 @@ export default function FlashCard() {
 
 	function handleClick() {
 		setTurn(!turn);
-		console.log(turn);
 	}
 
 	return (
 		<>
 			<CardContainer onClick={handleClick}>
 				<Card turn={turn}>
-					<Front>front</Front>
+					<Front>
+						<StyledH1>Title</StyledH1>
+						<StyledP>Description</StyledP>
+					</Front>
 					<Back>back</Back>
 				</Card>
 			</CardContainer>
@@ -31,7 +33,7 @@ const CardContainer = styled.div`
 	margin-top: 100px;
 	width: 300px;
 	height: 200px;
-	perspective: 1000px;
+	perspective: 500px;
 `;
 
 const Card = styled.div`
@@ -52,8 +54,10 @@ const Front = styled.div`
 
 	display: grid;
 	place-items: center;
-
+	grid-template-rows: 35% 65%;
 	backface-visibility: hidden;
+
+	border-radius: 30px;
 
 	background-color: lightcoral;
 `;
@@ -61,11 +65,31 @@ const Back = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	transform: rotateX(180deg);
+
+	display: grid;
+	place-items: center;
+	backface-visibility: hidden;
+
+	border-radius: 30px;
+
+	background: coral;
+`;
+
+const StyledH1 = styled.h1`
+	height: 90%;
+	width: 90%;
 
 	display: grid;
 	place-items: center;
 
-	backface-visibility: hidden;
-	transform: rotateX(180deg);
-	background: coral;
+	background-color: darkgrey;
+`;
+const StyledP = styled.p`
+	height: 90%;
+	width: 90%;
+
+	display: grid;
+	place-items: center;
+	background-color: grey;
 `;
