@@ -20,5 +20,14 @@ const StyledButton = styled.button`
 			width: 50px;
 			border-radius: 50%;
 			border: none;
-		`};
+		`}
+	${({variant}) =>
+		variant === 'startLearning' &&
+		css`
+			height: 30px;
+			width: 50px;
+			margin-top: 50px;
+			border-radius: 10%;
+			border: none;
+		`}
 `;
