@@ -30,4 +30,14 @@ const StyledButton = styled.button`
 			border-radius: 10%;
 			border: none;
 		`}
+	${({variant}) =>
+		variant === 'nextFlashCard' &&
+		css`
+			height: 30px;
+			margin-top: 50px;
+			padding: 10px;
+
+			border-radius: 10%;
+			border: none;
+		`}
 `;
