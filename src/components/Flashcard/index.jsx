@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 console.clear();
 
-export default function FlashCard({front, back = 'lorem ipsum'}) {
+export default function FlashCard({front = 'DefaultFront', back = 'DefaultBack'}) {
 	const [turn, setTurn] = useState(false);
 
 	function handleClick() {
@@ -16,7 +16,7 @@ export default function FlashCard({front, back = 'lorem ipsum'}) {
 				<Card turn={turn}>
 					<Front>
 						<StyledH1>{front}</StyledH1>
-						<StyledP>Description</StyledP>
+						<StyledP>{front}</StyledP>
 					</Front>
 					<Back>{back}</Back>
 				</Card>
