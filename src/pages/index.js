@@ -1,10 +1,12 @@
 // import {nanoid} from 'nanoid';
 import Head from 'next/head';
+
 // import {useRouter} from 'next/router';
 // import {useState} from 'react';
 
 // import Button from '../components/Button';
 import Layout from '../components/Layout';
+import StartSession from '../components/Links/StartSession';
 // import useFetch from '../hooks/useFetch';
 // import useStore from '../hooks/useStore';
 
@@ -30,6 +32,8 @@ export default function HomePage() {
 				<title key="title">Vocab-Dojo</title>
 				<meta key="description" name="description" content="This is my project" />
 			</Head>
+
+			<StartSession />
 		</Layout>
 	);
 }
