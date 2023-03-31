@@ -1,29 +1,33 @@
+import {useState} from 'react';
+
 import NextFlashCard from '../../components/Button/NextFlashCard';
 import FlashCard from '../../components/Flashcard';
 import Layout from '../../components/Layout';
-import {getAllVocabs} from '../../services/vocabServices';
+import {vocabStore} from '../../hooks/useStore';
+import {getRandomNum} from '../../utils/functions';
 
-console.clear();
-
-export const getStaticProps = () => {
-	const allVocabs = getAllVocabs();
+export function getStaticProps() {
+	const startingCard = getRandomNum(4);
 
 	return {
-		props: {allVocabs},
+		props: {startingCard},
 	};
-};
+}
 
-export default function StudySession() {
-	// function getRandomArrayNum() {
-	// 	const floatCard = Math.random(allVocabs.length);
-	// 	const randomizedCard = Math.round(floatCard * 4);
-	// 	return randomizedCard;
-	// }
+export default function StudySession({startingCard}) {
+	const vocabList = vocabStore(state => state.vocabList);
+
+	const [currentCard, setCurrentCard] = useState(vocabList[startingCard]);
+
+	function getRandomCard() {
+		const randomNum = getRandomNum(4);
+		return vocabList[randomNum];
+	}
 
 	return (
 		<Layout>
-			<FlashCard />
-			<NextFlashCard />
+			<FlashCard front={currentCard.front} back={currentCard.back} />
+			<NextFlashCard onClick={() => setCurrentCard(getRandomCard())} />
 		</Layout>
 	);
 }
