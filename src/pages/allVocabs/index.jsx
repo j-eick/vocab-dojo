@@ -4,15 +4,14 @@ import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
 // import UnorderedList from '../components/UnorderedLists';
-import {getAllVocabs} from '../../services/vocabServices';
+import {getAllFlashcards} from '../../services/vocabServices';
 
 export async function getStaticProps() {
-	const allFlashcards = await getAllVocabs();
-	console.log('inside getStaticProps: ' + allFlashcards);
+	const allFlashcards = await getAllFlashcards();
+	console.log(allFlashcards);
 
 	return {
 		props: {allFlashcards},
-		// allFlashcards: JSON.parse(JSON.stringify(allFlashcards)),
 	};
 }
 
@@ -26,7 +25,7 @@ export default function VocabListPage({allFlashcards}) {
 			<StyledUl>
 				{allFlashcards.map(word => (
 					<StyledLi key={word.id}>
-						<Link href={`/allVocabs/${word.id}`}>
+						<Link href={`/allVocabs/${word.front}`}>
 							<StyledCard>
 								<StyledP>{word.front}</StyledP>
 								<StyledP>{word.back}</StyledP>
