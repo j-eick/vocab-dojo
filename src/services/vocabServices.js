@@ -31,8 +31,8 @@ export async function getAllFlashcards() {
 		// return {
 		// 	flashcards: JSON.parse(JSON.stringify(flashcards)),
 		// };
-		return flashcards.map(({front, back}) => {
-			return {front, back};
+		return flashcards.map(({id, front, back}) => {
+			return {id, front, back};
 		});
 	} catch (error) {
 		console.log('Trying to parse...' + error);
