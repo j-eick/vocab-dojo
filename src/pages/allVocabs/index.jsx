@@ -1,20 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
 // import UnorderedList from '../components/UnorderedLists';
-import {getAllFlashcards} from '../../services/vocabServices';
+import {getAllVocabs} from '../../services/vocabServices';
 
-import {StyledUl, StyledLi, StyledCard, StyledP} from './styled.js';
-
-/**
- * Retrieves all Flashcards from MongoDB
- * => Needs to wait for server => asnyc function
- *
- * @returns { front, back } of the cards
- */
 export async function getStaticProps() {
-	const allFlashcards = await getAllFlashcards();
+	const allFlashcards = await getAllVocabs();
 	console.log('inside getStaticProps: ' + allFlashcards);
 
 	return {
@@ -31,12 +24,12 @@ export default function VocabListPage({allFlashcards}) {
 				<meta key="description" name="description" content="About" />
 			</Head>
 			<StyledUl>
-				{allFlashcards.map(card => (
-					<StyledLi key={card.front}>
-						<Link href={`/allVocabs/${card.front}`}>
+				{allFlashcards.map(word => (
+					<StyledLi key={word.id}>
+						<Link href={`/allVocabs/${word.id}`}>
 							<StyledCard>
-								<StyledP>{card.front}</StyledP>
-								<StyledP>{card.back}</StyledP>
+								<StyledP>{word.front}</StyledP>
+								<StyledP>{word.back}</StyledP>
 							</StyledCard>
 						</Link>
 					</StyledLi>
@@ -45,3 +38,37 @@ export default function VocabListPage({allFlashcards}) {
 		</Layout>
 	);
 }
+
+// #################################
+// #######    STYLING    ###########
+// #################################
+
+const StyledUl = styled.ul`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	gap: 15px;
+	border: 1px solid black;
+`;
+
+const StyledLi = styled.li`
+	display: grid;
+	grid-template-columns: 1fr;
+	align-items: left;
+	width: 100%;
+	gap: 15px;
+	background-color: lightcoral;
+`;
+
+const StyledCard = styled.div`
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 0 20px;
+	gap: 15px;
+`;
+
+const StyledP = styled.p`
+	padding: 0 10px;
+	background-color: lightcyan;
+`;

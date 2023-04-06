@@ -24,7 +24,8 @@ const ResponsiveContainer = styled.div`
 
 const StyledMain = styled.main`
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	min-height: calc(667px - 160px);
 	background-color: orange;
 `;
