@@ -6,6 +6,8 @@ import Layout from '../../components/Layout';
 // import UnorderedList from '../components/UnorderedLists';
 import {getAllFlashcards} from '../../services/vocabServices';
 
+console.clear();
+
 export async function getStaticProps() {
 	const allFlashcards = await getAllFlashcards();
 	console.log(allFlashcards);
