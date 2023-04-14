@@ -1,30 +1,37 @@
-// import {getAllFlashcards, getVocabById} from '../../services/vocabServices';
+// import Head from 'next/head';
+
+// import {getAllFlashcards, getFlashcardById} from '../../services/vocabServices';
 
 // export async function getStaticPaths() {
-// 	const allVocabs = await getAllFlashcards();
+// 	const allFlashcards = await getAllFlashcards();
 // 	return {
-// 		paths: allVocabs.map(vocab => ({
+// 		paths: allFlashcards.map(card => ({
 // 			params: {
-// 				id: vocab.front,
+// 				id: card.id,
 // 			},
 // 		})),
 // 		fallback: false,
 // 	};
 // }
 
-// export const getStaticProps = async context => {
-// 	const vocab = await getVocabById(context.params.id);
-// 	return {
-// 		props: {vocab},
-// 	};
-// };
+// export async function getStaticProps(context) {
+// 	const flashcard = await getFlashcardById(context.params.id);
 
-// export default async function AllVocabs({vocab}) {
-// 	const {front, back} = await vocab;
+// 	console.log('hi: ' + flashcard);
+// 	return {
+// 		props: {flashcard},
+// 	};
+// }
+
+// export default function AllVocabs({flashcard}) {
+// 	const {id, front, back} = flashcard;
 
 // 	return (
 // 		<>
-// 			{/* <p>{'id: ' + id}</p> */}
+// 			<Head>
+// 				<title>Flashcard: {front}</title>
+// 			</Head>
+// 			<p>{'id: ' + id}</p>
 // 			<p>{'front => ' + front}</p>
 // 			<p>{'back => ' + back}</p>
 // 		</>
