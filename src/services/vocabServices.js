@@ -25,26 +25,19 @@ export async function getAllFlashcards() {
 	 */
 	const flashcards = await Flashcard.find();
 
-	console.log('Fetching array from MongoDB: ' + flashcards);
-
-	try {
-		// return {
-		// 	flashcards: JSON.parse(JSON.stringify(flashcards)),
-		// };
-		return flashcards.map(({id, front, back}) => {
-			return {id, front, back};
-		});
-	} catch (error) {
-		console.log('Trying to parse...' + error);
-	}
-
-	// return flashcards;
-
-	// return flashcards.map(({front, back}) => {
-	// 	return {front, back};
-	// });
+	return flashcards.map(({id, front, back}) => {
+		return {id, front, back};
+	});
 }
 
-// export function getVocabById(id) {
-// 	return vocabList.find(word => word.id === id);
-// }
+export async function getFlashcardById(id_) {
+	await dbConnect();
+
+	const flashcard = await Flashcard.findById(id_);
+
+	const test = await flashcard;
+	console.log(test);
+
+	const {id, front, back} = flashcard;
+	return {id, front, back};
+}
