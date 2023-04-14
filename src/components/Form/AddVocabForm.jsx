@@ -1,22 +1,17 @@
+import {useState} from 'react';
 import styled from 'styled-components';
-
-import {vocabStore} from '../../hooks/useStore';
 
 console.clear();
 
-export default function AddVocabForm() {
-	const getVocabList = vocabStore(state => state.vocabList);
-	const addVocabs = vocabStore(state => state.addVocabs);
-	const removeVocabs = vocabStore(state => state.removeVocabs);
+export default function AddVocabForm({onSubmit}) {
+	const [frontside, setFrontside] = useState('');
+	const [backside, setBackside] = useState('');
 
 	const handleSubmit = event => {
 		event.preventDefault();
 
-		const frontside = event.target.elements.frontSide.value;
-		const backside = event.target.elements.backSide.value;
-
 		if ((frontside && backside) !== '') {
-			addVocabs({
+			onSubmit({
 				front: frontside,
 				back: backside,
 			});
@@ -27,38 +22,35 @@ export default function AddVocabForm() {
 		event.target.elements.backSide.value = '';
 	};
 
-	const handleRemoveItem = itemToRemove => {
-		removeVocabs(itemToRemove);
-		console.log('clicked the bin ' + itemToRemove);
-	};
-
 	return (
 		<Wrapper>
 			<StyledForm onSubmit={handleSubmit}>
 				<label htmlFor="frontSide">
 					Frontside:
-					<input id="frontSide" type="text" name="frontSide" />
+					<input
+						id="frontSide"
+						type="text"
+						name="frontSide"
+						onChange={event => {
+							setFrontside(event.target.value);
+						}}
+					/>
 				</label>
 				<label htmlFor="backSide">
 					Backside:
-					<input id="backSide" type="text" name="backSide" />
+					<input
+						id="backSide"
+						type="text"
+						name="backSide"
+						onChange={event => {
+							setBackside(event.target.value);
+						}}
+					/>
 				</label>
-				<StyledSubmit type="submit" name="submit" />
+				<StyledSubmit type="submit" name="submit">
+					New Word
+				</StyledSubmit>
 			</StyledForm>
-			<StyledCardUl>
-				{getVocabList.map(card => (
-					<StyledCardLi key={card.front}>
-						<StyledCardSide>
-							{card.front}
-							<Trash onClick={() => handleRemoveItem(card)}>🗑</Trash>
-						</StyledCardSide>
-						<StyledCardSide>
-							{card.back}
-							<Trash onClick={() => handleRemoveItem(card)}>🗑</Trash>
-						</StyledCardSide>
-					</StyledCardLi>
-				))}
-			</StyledCardUl>
 		</Wrapper>
 	);
 }
@@ -70,53 +62,58 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 `;
-const StyledCardUl = styled.ul`
-	width: 80%;
-	padding: 20px;
-	margin-top: 50px;
+// const StyledCardUl = styled.ul`
+// 	width: 80%;
+// 	padding: 20px;
+// 	margin-top: 50px;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	gap: 20px;
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: center;
+// 	gap: 20px;
 
-	background-color: yellow;
-`;
-const StyledCardLi = styled.li`
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+// 	background-color: yellow;
+// `;
+// const StyledCardLi = styled.li`
+// 	display: flex;
+// 	flex-direction: row;
+// 	justify-content: center;
 
-	gap: 10px;
+// 	gap: 10px;
 
-	border: 1px solid black;
-`;
-const StyledCardSide = styled.p`
-	position: relative;
-	width: 120px;
+// 	border: 1px solid black;
+// `;
+// const StyledCardSide = styled.p`
+// 	position: relative;
+// 	width: 120px;
 
-	display: flex;
-	justify-content: center;
+// 	display: flex;
+// 	justify-content: center;
 
-	/* margin: 20px; */
-	padding: 20px;
-	background-color: #62aed4;
-`;
+// 	/* margin: 20px; */
+// 	padding: 20px;
+// 	background-color: #62aed4;
+// `;
 
-const Trash = styled.span`
-	position: absolute;
-	top: -7px;
-	right: -5px;
-	font-size: 1.5rem;
-`;
+// const Trash = styled.span`
+// 	position: absolute;
+// 	top: -7px;
+// 	right: -5px;
+// 	font-size: 1.5rem;
+// `;
 
 const StyledForm = styled.form`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 `;
-const StyledSubmit = styled.input.attrs({
-	type: 'submit',
-})`
+
+const StyledSubmit = styled.button`
 	width: 40%;
 `;
+
+// const StyledSubmit = styled.input.attrs({
+// 	type: 'submit',
+// })`
+// 	width: 40%;
+// `;

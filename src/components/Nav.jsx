@@ -36,7 +36,7 @@ export default function Nav() {
 					</Link>
 				</StyledLi>
 				<StyledLi>
-					<Link href="/add-vocab" aria-label="Add new vocab">
+					<Link href="/create-vocab" aria-label="Add new vocab">
 						🧸
 					</Link>
 				</StyledLi>
