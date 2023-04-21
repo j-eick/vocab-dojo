@@ -1,11 +1,8 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
-// import UnorderedList from '../components/UnorderedLists';
 import {getAllFlashcards} from '../../services/vocabServices';
-//import {getFlashcardById} from '../../services/vocabServices';
 
 console.clear();
 
@@ -27,12 +24,10 @@ export default function VocabListPage({allFlashcards}) {
 			<StyledUl>
 				{allFlashcards.map(word => (
 					<StyledLi key={word.id}>
-						<Link href={`/allVocabs/${word.front}`}>
-							<StyledCard>
-								<StyledP>{word.front}</StyledP>
-								<StyledP>{word.back}</StyledP>
-							</StyledCard>
-						</Link>
+						<StyledCard>
+							<StyledP>{word.front}</StyledP>
+							<StyledP>{word.back}</StyledP>
+						</StyledCard>
 					</StyledLi>
 				))}
 			</StyledUl>
