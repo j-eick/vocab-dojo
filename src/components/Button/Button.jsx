@@ -40,4 +40,13 @@ const StyledButton = styled.button`
 			border-radius: 10%;
 			border: none;
 		`}
+		${({variant}) =>
+		variant === 'default' &&
+		css`
+			width: fit-content;
+			border: none;
+			border-radius: 20px;
+			display: grid;
+			place-items: center;
+		`}
 `;
