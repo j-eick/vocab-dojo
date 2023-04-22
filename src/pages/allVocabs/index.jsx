@@ -8,6 +8,7 @@ console.clear();
 
 export async function getStaticProps() {
 	const allFlashcards = await getAllFlashcards();
+	console.log(allFlashcards.length);
 
 	return {
 		props: {allFlashcards},
