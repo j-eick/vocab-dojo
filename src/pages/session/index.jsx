@@ -21,7 +21,8 @@ export default function StudySession({startingCard, allFlashcards}) {
 	const [currentCard, setCurrentCard] = useState(allFlashcards[startingCard]);
 
 	function getRandomCard() {
-		const randomNum = getRandomNum(4);
+		const sumAllFlashcards = allFlashcards.length;
+		const randomNum = getRandomNum(sumAllFlashcards);
 		return allFlashcards[randomNum];
 	}
 
