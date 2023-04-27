@@ -1,33 +1,35 @@
 import {useState} from 'react';
 
-import NextFlashCard from '../../components/Button/NextFlashCard';
+import NextFlashCardButton from '../../components/Button/NextFlashCard';
 import FlashCard from '../../components/Flashcard';
 import Layout from '../../components/Layout';
-import {vocabStore} from '../../hooks/useStore';
+import {getAllFlashcards} from '../../services/vocabServices';
 import {getRandomNum} from '../../utils/functions';
 
-export function getStaticProps() {
+console.clear();
+
+export async function getStaticProps() {
 	const startingCard = getRandomNum(4);
+	const allFlashcards = await getAllFlashcards();
 
 	return {
-		props: {startingCard},
+		props: {startingCard, allFlashcards},
 	};
 }
 
-export default function StudySession({startingCard}) {
-	const vocabList = vocabStore(state => state.vocabList);
-
-	const [currentCard, setCurrentCard] = useState(vocabList[startingCard]);
+export default function StudySession({startingCard, allFlashcards}) {
+	const [currentCard, setCurrentCard] = useState(allFlashcards[startingCard]);
 
 	function getRandomCard() {
-		const randomNum = getRandomNum(4);
-		return vocabList[randomNum];
+		const sumAllFlashcards = allFlashcards.length;
+		const randomNum = getRandomNum(sumAllFlashcards);
+		return allFlashcards[randomNum];
 	}
 
 	return (
 		<Layout>
 			<FlashCard front={currentCard.front} back={currentCard.back} />
-			<NextFlashCard onClick={() => setCurrentCard(getRandomCard())} />
+			<NextFlashCardButton onClick={() => setCurrentCard(getRandomCard())} />
 		</Layout>
 	);
 }
