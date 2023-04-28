@@ -1,3 +1,5 @@
+import {mdiAccountCircle} from '@mdi/js';
+import Icon from '@mdi/react';
 import {useState} from 'react';
 
 import ProfileMenuModal from '../Modals/ProfileMenuModal';
@@ -12,7 +14,7 @@ export default function ProfileButton() {
 	return (
 		<>
 			<Button variant={'profileMenuModal'} onClick={() => setModal(!modal)}>
-				<div>🙋🏻‍♂️</div>
+				<Icon path={mdiAccountCircle} size={3} />
 			</Button>
 			{!modal ? <ProfileMenuModal /> : null}
 		</>
