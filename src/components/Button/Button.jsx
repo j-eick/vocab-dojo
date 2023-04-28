@@ -19,6 +19,9 @@ const StyledButton = styled.button`
 			position: absolute;
 			height: 70px;
 			width: 60px;
+			display: grid;
+			place-items: center;
+
 			top: 20px;
 			left: 10px;
 			border-radius: 50%;
