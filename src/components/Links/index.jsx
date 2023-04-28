@@ -17,8 +17,8 @@ const CustomLinkDesign = styled.div`
 	${({variant}) =>
 		variant === 'startSession' &&
 		css`
-			padding: 15px 30px;
-			border-radius: 10px;
+			padding: 12px 20px;
+			border-radius: 15px;
 			text-decoration: none;
 			cursor: pointer;
 
