@@ -1,31 +1,14 @@
-// import {nanoid} from 'nanoid';
 import Head from 'next/head';
 
-// import {useRouter} from 'next/router';
-// import {useState} from 'react';
-
-// import Button from '../components/Button';
 import Layout from '../components/Layout';
 import StartSession from '../components/Links/StartSession';
-// import useFetch from '../hooks/useFetch';
-// import useStore from '../hooks/useStore';
+import Textfield from '../components/TextField';
+import TextfieldArea from '../components/TextfieldArea';
+import Title from '../components/Title/index';
 
 console.clear();
 
 export default function HomePage() {
-	// const {asPath} = useRouter();
-	// // Data
-	// const {data, loading, error} = useFetch('/api/hello');
-
-	// // Local state
-	// const [id, setId] = useState(null);
-
-	// // Global state
-	// const counter = useStore(state => state.counter);
-	// const decrementCounter = useStore(state => state.decrementCounter);
-	// const incrementCounter = useStore(state => state.incrementCounter);
-	// const setCounter = useStore(state => state.setCounter);
-
 	return (
 		<Layout>
 			<Head>
@@ -33,7 +16,20 @@ export default function HomePage() {
 				<meta key="description" name="description" content="This is my project" />
 			</Head>
 
-			<StartSession />
+			{/* #############   TEXTFIELD AREAS   ################ */}
+
+			<TextfieldArea variant="textFieldArea">
+				<Title variant="textfieldArea_Title">Hard to remember</Title>
+				<Textfield variant="textfield_mainpage">Example 2</Textfield>
+			</TextfieldArea>
+			<TextfieldArea variant="textFieldArea">
+				<Title variant="textfieldArea_Title">Last Added</Title>
+				<Textfield variant="textfield_mainpage">Example</Textfield>
+			</TextfieldArea>
+
+			{/* #############   START SESSION   ################ */}
+			<Title variant="startSession_Title">Train your brain</Title>
+			<StartSession variant="startSession" />
 		</Layout>
 	);
 }
