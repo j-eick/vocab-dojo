@@ -16,8 +16,11 @@ const StyledButton = styled.button`
 	${({variant}) =>
 		variant === 'profileMenuModal' &&
 		css`
-			height: 70%;
-			width: 50px;
+			position: absolute;
+			height: 70px;
+			width: 60px;
+			top: 20px;
+			left: 10px;
 			border-radius: 50%;
 			border: none;
 		`}
@@ -40,7 +43,7 @@ const StyledButton = styled.button`
 			border-radius: 10%;
 			border: none;
 		`}
-		${({variant}) =>
+	${({variant}) =>
 		variant === 'default' &&
 		css`
 			width: fit-content;
