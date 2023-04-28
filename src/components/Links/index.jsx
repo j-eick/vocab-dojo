@@ -3,11 +3,13 @@ import styled, {css} from 'styled-components';
 
 console.clear();
 
-export default function LinkTemplate({children, href, variant}) {
+export default function LinkTemplate({children, href, variant, icon}) {
 	return (
 		<>
 			<Link href={href} passHref>
-				<CustomLinkDesign variant={variant}>{children}</CustomLinkDesign>
+				<CustomLinkDesign variant={variant} icon={icon}>
+					{children}
+				</CustomLinkDesign>
 			</Link>
 		</>
 	);
@@ -17,11 +19,7 @@ const CustomLinkDesign = styled.div`
 	${({variant}) =>
 		variant === 'startSession' &&
 		css`
-			height: 20px;
-
-			margin-top: 30px;
-			padding: 20px 30px 30px 30px;
-			border: none;
+			padding: 15px 30px;
 			border-radius: 10px;
 			text-decoration: none;
 			cursor: pointer;
