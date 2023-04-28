@@ -16,9 +16,18 @@ const StyledTextfield = styled.div`
 		css`
 			width: 100%;
 			height: 100px;
-			padding: 10px;
+			padding: 20px;
+
+			font-size: var(--fontsize_Textfield_text);
+
+			box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
 			border-radius: 20px;
-			background-color: #d3f0ff;
+			background: rgb(237, 243, 251);
+			background: linear-gradient(
+				207deg,
+				rgba(237, 243, 251, 1) 0%,
+				rgba(211, 222, 238, 1) 10%
+			);
 		`}
 `;
