@@ -8,7 +8,8 @@ const Canvas = styled.div`
 	place-items: center;
 	width: 100vw;
 	min-height: 100vh;
-	background-color: lightgreen;
+	background: rgb(234, 240, 247);
+	background: linear-gradient(207deg, rgba(234, 240, 247, 1) 0%, rgba(212, 223, 234, 1) 57%);
 `;
 
 const ResponsiveContainer = styled.div`
@@ -28,7 +29,8 @@ const StyledMain = styled.main`
 	flex-direction: column;
 	align-items: center;
 	min-height: calc(667px - 60px);
-	background-color: orange;
+	background: rgb(221, 231, 244);
+	background: linear-gradient(55deg, rgba(221, 231, 244, 1) 0%, rgba(191, 206, 226, 1) 10%);
 `;
 
 export default function Layout({children}) {
