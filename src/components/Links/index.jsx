@@ -3,13 +3,11 @@ import styled, {css} from 'styled-components';
 
 console.clear();
 
-export default function LinkTemplate({children, href, variant, icon}) {
+export default function LinkTemplate({children, href, variant}) {
 	return (
 		<>
 			<Link href={href} passHref>
-				<CustomLinkDesign variant={variant} icon={icon}>
-					{children}
-				</CustomLinkDesign>
+				<CustomLinkDesign variant={variant}>{children}</CustomLinkDesign>
 			</Link>
 		</>
 	);
