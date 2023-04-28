@@ -22,6 +22,8 @@ const CustomLinkDesign = styled.div`
 			text-decoration: none;
 			cursor: pointer;
 
-			background-color: lightblue;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
+
+			background-color: #d3deee;
 		`}
 `;
