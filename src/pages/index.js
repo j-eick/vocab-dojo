@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import Layout from '../components/Layout';
-import StartSession from '../components/Links/StartSession';
+import StartSessionLink from '../components/Links/StartSessionLink';
 import Textfield from '../components/TextField';
 import TextfieldArea from '../components/TextfieldArea';
 import Title from '../components/Title/index';
@@ -29,7 +29,7 @@ export default function HomePage() {
 
 			{/* #############   START SESSION   ################ */}
 			<Title variant="startSession_Title">Train your brain</Title>
-			<StartSession variant="startSession" />
+			<StartSessionLink variant="startSession" />
 		</Layout>
 	);
 }

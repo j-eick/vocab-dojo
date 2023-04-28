@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
 		--fontsize_HeaderTitle: 2rem;
 		--fontsize_Textfield_title: 2.5rem;
 		--fontsize_defaultText: 1.5rem;
+		--fontsize_ButtonText: 2rem;
 	}
 
 	*,
