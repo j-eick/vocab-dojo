@@ -25,7 +25,7 @@ export default function AddVocabForm({onSubmit}) {
 	return (
 		<Wrapper>
 			<StyledForm onSubmit={handleSubmit}>
-				<label htmlFor="frontSide">
+				<StyledLabel htmlFor="frontSide">
 					Frontside:
 					<input
 						id="frontSide"
@@ -35,8 +35,8 @@ export default function AddVocabForm({onSubmit}) {
 							setFrontside(event.target.value);
 						}}
 					/>
-				</label>
-				<label htmlFor="backSide">
+				</StyledLabel>
+				<StyledLabel htmlFor="backSide">
 					Backside:
 					<input
 						id="backSide"
@@ -46,7 +46,7 @@ export default function AddVocabForm({onSubmit}) {
 							setBackside(event.target.value);
 						}}
 					/>
-				</label>
+				</StyledLabel>
 				<StyledSubmit type="submit" name="submit">
 					New Word
 				</StyledSubmit>
@@ -103,9 +103,14 @@ const Wrapper = styled.div`
 // `;
 
 const StyledForm = styled.form`
+	margin-top: 200px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+`;
+
+const StyledLabel = styled.label`
+	margin: 20px 20px;
 `;
 
 const StyledSubmit = styled.button`
