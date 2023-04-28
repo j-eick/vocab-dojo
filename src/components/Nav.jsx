@@ -18,15 +18,18 @@ const StyledNav = styled.nav`
 	background: linear-gradient(55deg, #acc1dd 10%), #ceddf1 0%;
 `;
 const StyledUl = styled.ul`
-	display: grid;
+	/* display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	width: inherit;
+	width: inherit; */
+	width: 70vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
 `;
 const StyledLi = styled.li`
-	display: grid;
-	justify-content: center;
 	margin: 0 20px;
-	padding: 10px 30px;
+	padding: 10px 10px;
+	cursor: pointer;
 `;
 
 export default function Nav() {
