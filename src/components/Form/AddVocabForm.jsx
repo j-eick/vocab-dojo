@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import CreateFlashcardButton from '../Button/CreateFlashcardButton';
-import Inputfield from '../Input';
+import FrontBackCardInput from '../InputMultiline/FrontBackCard';
 import LabelTwoTags from '../Label';
 
 import Form from './';
@@ -32,7 +32,7 @@ export default function AddVocabForm({onSubmit}) {
 			<LabelTwoTags htmlFor="frontSide" variant="createVocab_frontBack">
 				Frontside:
 			</LabelTwoTags>
-			<Inputfield
+			<FrontBackCardInput
 				id="frontSide"
 				type="text"
 				name="frontSide"
@@ -44,7 +44,7 @@ export default function AddVocabForm({onSubmit}) {
 			<LabelTwoTags htmlFor="backSide" variant="createVocab_frontBack">
 				Backside:
 			</LabelTwoTags>
-			<Inputfield
+			<FrontBackCardInput
 				id="backSide"
 				type="text"
 				name="backSide"
