@@ -19,5 +19,8 @@ const StyledLabel = styled.label`
 		variant === 'createVocab_frontBack' &&
 		css`
 			margin-bottom: 5px;
+			margin-left: 7px;
+
+			font-size: var(--fontsize_Textfield_title);
 		`}
 `;
