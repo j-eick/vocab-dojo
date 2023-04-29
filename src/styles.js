@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	:root {
 		--fontsize_HeaderTitle: 2rem;
-		--fontsize_Textfield_title: 2.5rem;
+		--fontsize_Textfield_title: 2rem;
 		--fontsize_Textfield_text: 1.75rem;
 		--fontsize_Textfield_createVocab: 1rem;
 		--fontsize_defaultText: 1.5rem;
