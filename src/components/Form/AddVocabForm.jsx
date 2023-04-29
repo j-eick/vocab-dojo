@@ -1,5 +1,10 @@
 import {useState} from 'react';
-import styled from 'styled-components';
+
+import CreateFlashcardButton from '../Button/CreateFlashcardButton';
+import Inputfield from '../Input';
+import LabelTwoTags from '../Label';
+
+import Form from './';
 
 console.clear();
 
@@ -23,63 +28,36 @@ export default function AddVocabForm({onSubmit}) {
 	};
 
 	return (
-		<Wrapper>
-			<StyledForm onSubmit={handleSubmit}>
-				<StyledLabel htmlFor="frontSide">
-					Frontside:
-					<input
-						id="frontSide"
-						type="text"
-						name="frontSide"
-						onChange={event => {
-							setFrontside(event.target.value);
-						}}
-					/>
-				</StyledLabel>
-				<StyledLabel htmlFor="backSide">
-					Backside:
-					<input
-						id="backSide"
-						type="text"
-						name="backSide"
-						onChange={event => {
-							setBackside(event.target.value);
-						}}
-					/>
-				</StyledLabel>
-				<StyledSubmit type="submit" name="submit">
+		<Form onSubmit={handleSubmit} variant="addFlashcard_Form">
+			<LabelTwoTags htmlFor="frontSide" variant="createVocab_frontBack">
+				Frontside:
+			</LabelTwoTags>
+			<Inputfield
+				id="frontSide"
+				type="text"
+				name="frontSide"
+				onChange={event => {
+					setFrontside(event.target.value);
+				}}
+				variant="input_createVocabs"
+			/>
+			<LabelTwoTags htmlFor="backSide" variant="createVocab_frontBack">
+				Backside:
+			</LabelTwoTags>
+			<Inputfield
+				id="backSide"
+				type="text"
+				name="backSide"
+				onChange={event => {
+					setBackside(event.target.value);
+				}}
+				variant="input_createVocabs"
+			/>
+			<div style={{display: 'flex', justifyContent: 'flex-end'}}>
+				<CreateFlashcardButton type="submit" name="submit" variant="createFlashcard">
 					New Word
-				</StyledSubmit>
-			</StyledForm>
-		</Wrapper>
+				</CreateFlashcardButton>
+			</div>
+		</Form>
 	);
 }
-
-const Wrapper = styled.div`
-	width: 100%;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-`;
-
-const StyledForm = styled.form`
-	margin-top: 200px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-`;
-
-const StyledLabel = styled.label`
-	margin: 20px 20px;
-`;
-
-const StyledSubmit = styled.button`
-	width: 40%;
-`;
-
-// const StyledSubmit = styled.input.attrs({
-// 	type: 'submit',
-// })`
-// 	width: 40%;
-// `;
