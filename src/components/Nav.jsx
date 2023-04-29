@@ -18,9 +18,6 @@ const StyledNav = styled.nav`
 	background: linear-gradient(55deg, #acc1dd 10%), #ceddf1 0%;
 `;
 const StyledUl = styled.ul`
-	/* display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	width: inherit; */
 	width: 70vw;
 	display: flex;
 	flex-direction: row;
