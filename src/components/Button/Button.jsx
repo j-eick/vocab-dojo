@@ -62,7 +62,22 @@ const StyledButton = styled.button`
 	${({variant}) =>
 		variant === 'createFlashcard' &&
 		css`
+			padding: 10px 10px;
 			width: fit-content;
-			padding: 10px;
+
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			align-items: center;
+			gap: 5px;
+
+			border: none;
+			border-radius: 15px;
+			cursor: pointer;
+
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
+			background-color: #dde7f4;
+			&:hover {
+				background: #e1e8f3;
+			}
 		`}
 `;
