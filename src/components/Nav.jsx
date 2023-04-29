@@ -47,20 +47,19 @@ export default function Nav() {
 }
 
 const StyledNav = styled.nav`
-	display: grid;
+	height: 70px;
 	bottom: 0;
-	align-items: center;
-	justify-content: space-around;
-	width: 100%;
-	min-height: 70px;
+
 	background: rgb(221, 231, 244);
 	background: linear-gradient(55deg, #acc1dd 10%), #ceddf1 0%;
+	border: 1px solid black;
 `;
 const StyledUl = styled.ul`
-	width: 70vw;
+	height: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: space-around;
+	align-items: center;
 `;
 const StyledLi = styled.li`
 	margin: 0 20px;
