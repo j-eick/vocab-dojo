@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
+import Textfield from '../../components/TextField';
 import {getAllFlashcards} from '../../services/vocabServices';
 
 console.clear();
@@ -26,8 +27,8 @@ export default function VocabListPage({allFlashcards}) {
 				{allFlashcards.map(word => (
 					<StyledLi key={word.id}>
 						<StyledCard>
-							<StyledP>{word.front}</StyledP>
-							<StyledP>{word.back}</StyledP>
+							<Textfield variant="textfield_overview">{word.front}</Textfield>
+							<Textfield variant="textfield_overview">{word.back}</Textfield>
 						</StyledCard>
 					</StyledLi>
 				))}
@@ -41,31 +42,22 @@ export default function VocabListPage({allFlashcards}) {
 // #################################
 
 const StyledUl = styled.ul`
+	margin-top: 120px;
+	width: 80%;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 80%;
-	gap: 15px;
-	border: 1px solid black;
+	gap: 25px;
 `;
 
 const StyledLi = styled.li`
-	display: grid;
-	grid-template-columns: 1fr;
-	align-items: left;
 	width: 100%;
-	gap: 15px;
-	background-color: lightcoral;
 `;
 
 const StyledCard = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	padding: 0 20px;
-	gap: 15px;
-`;
-
-const StyledP = styled.p`
-	padding: 0 10px;
-	background-color: lightcyan;
+	/* padding: 10px 0; */
+	gap: 5px;
 `;
