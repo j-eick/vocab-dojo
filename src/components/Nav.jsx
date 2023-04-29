@@ -1,11 +1,50 @@
-import {mdiHomeVariant} from '@mdi/js';
-import {mdiCardPlus} from '@mdi/js';
-import {mdiFormatListBulleted} from '@mdi/js';
+import {mdiHomeVariant, mdiHomeVariantOutline} from '@mdi/js';
+import {mdiCardPlus, mdiCardPlusOutline} from '@mdi/js';
+import {mdiListBox, mdiListBoxOutline} from '@mdi/js';
 import Icon from '@mdi/react';
 import Link from 'next/link';
+import {useRouter} from 'next/router';
 import styled from 'styled-components';
 
 console.clear();
+
+export default function Nav() {
+	const router = useRouter();
+
+	return (
+		<StyledNav>
+			<StyledUl>
+				<StyledLi>
+					<Link href="/" aria-label="Home">
+						{router.asPath === '/' ? (
+							<Icon path={mdiHomeVariant} size={2.2} />
+						) : (
+							<Icon path={mdiHomeVariantOutline} size={2.2} />
+						)}
+					</Link>
+				</StyledLi>
+				<StyledLi>
+					<Link href="/create-vocab" aria-label="Add new vocab">
+						{router.asPath === '/create-vocab' ? (
+							<Icon path={mdiCardPlus} size={2.2} />
+						) : (
+							<Icon path={mdiCardPlusOutline} size={2.2} />
+						)}
+					</Link>
+				</StyledLi>
+				<StyledLi>
+					<Link href="/allVocabs">
+						{router.asPath === '/allVocabs' ? (
+							<Icon path={mdiListBox} size={2.2} />
+						) : (
+							<Icon path={mdiListBoxOutline} size={2.2} />
+						)}
+					</Link>
+				</StyledLi>
+			</StyledUl>
+		</StyledNav>
+	);
+}
 
 const StyledNav = styled.nav`
 	display: grid;
@@ -28,27 +67,3 @@ const StyledLi = styled.li`
 	padding: 10px 10px;
 	cursor: pointer;
 `;
-
-export default function Nav() {
-	return (
-		<StyledNav>
-			<StyledUl>
-				<StyledLi>
-					<Link href="/" aria-label="Home">
-						<Icon path={mdiHomeVariant} size={2.2} />
-					</Link>
-				</StyledLi>
-				<StyledLi>
-					<Link href="/create-vocab" aria-label="Add new vocab">
-						<Icon path={mdiCardPlus} size={2.2} />
-					</Link>
-				</StyledLi>
-				<StyledLi>
-					<Link href="/allVocabs">
-						<Icon path={mdiFormatListBulleted} size={2.2} />
-					</Link>
-				</StyledLi>
-			</StyledUl>
-		</StyledNav>
-	);
-}
