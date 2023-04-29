@@ -17,27 +17,33 @@ export default function Nav() {
 				<StyledLi>
 					<Link href="/" aria-label="Home">
 						{router.asPath === '/' ? (
-							<Icon path={mdiHomeVariant} size={2.2} />
+							<StyledDiv>
+								<Icon path={mdiHomeVariant} size={2} />
+							</StyledDiv>
 						) : (
-							<Icon path={mdiHomeVariantOutline} size={2.2} />
+							<Icon path={mdiHomeVariantOutline} size={2} />
 						)}
 					</Link>
 				</StyledLi>
 				<StyledLi>
 					<Link href="/create-vocab" aria-label="Add new vocab">
 						{router.asPath === '/create-vocab' ? (
-							<Icon path={mdiCardPlus} size={2.2} />
+							<StyledDiv>
+								<Icon path={mdiCardPlus} size={2} />
+							</StyledDiv>
 						) : (
-							<Icon path={mdiCardPlusOutline} size={2.2} />
+							<Icon path={mdiCardPlusOutline} size={2} />
 						)}
 					</Link>
 				</StyledLi>
 				<StyledLi>
 					<Link href="/allVocabs">
 						{router.asPath === '/allVocabs' ? (
-							<Icon path={mdiListBox} size={2.2} />
+							<StyledDiv>
+								<Icon path={mdiListBox} size={2} />
+							</StyledDiv>
 						) : (
-							<Icon path={mdiListBoxOutline} size={2.2} />
+							<Icon path={mdiListBoxOutline} size={2} />
 						)}
 					</Link>
 				</StyledLi>
@@ -64,4 +70,10 @@ const StyledLi = styled.li`
 	margin: 0 20px;
 	padding: 10px 10px;
 	cursor: pointer;
+`;
+
+const StyledDiv = styled.div`
+	padding: 3px 10px;
+	border: 1px solid black;
+	border-radius: 5px;
 `;
