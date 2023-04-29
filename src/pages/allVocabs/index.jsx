@@ -9,7 +9,7 @@ console.clear();
 
 export async function getStaticProps() {
 	const allFlashcards = await getAllFlashcards();
-	console.log(allFlashcards.length);
+	console.log('cards in deck: ' + allFlashcards.length);
 
 	return {
 		props: {allFlashcards},
@@ -43,12 +43,25 @@ export default function VocabListPage({allFlashcards}) {
 
 const StyledUl = styled.ul`
 	margin-top: 120px;
+	padding: 30px 20px;
 	width: 80%;
+	max-height: 450px;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	border-top: 3px solid #dde7f4;
+	border-bottom: 3px solid #dde7f4;
+
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	overflow-y: scroll;
 	gap: 25px;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 `;
 
 const StyledLi = styled.li`
