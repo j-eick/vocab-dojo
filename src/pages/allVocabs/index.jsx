@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
-import Textfield from '../../components/TextField';
+import Textbox from '../../components/Texfield/Textbox';
 import {getAllFlashcards} from '../../services/vocabServices';
 
 console.clear();
@@ -27,8 +27,8 @@ export default function VocabListPage({allFlashcards}) {
 				{allFlashcards.map(word => (
 					<StyledLi key={word.id}>
 						<StyledCard>
-							<Textfield variant="textfield_overview">{word.front}</Textfield>
-							<Textfield variant="textfield_overview">{word.back}</Textfield>
+							<Textbox variant="textfield_overview">{word.front}</Textbox>
+							<Textbox variant="textfield_overview">{word.back}</Textbox>
 						</StyledCard>
 					</StyledLi>
 				))}
