@@ -19,11 +19,12 @@ const CustomLinkDesign = styled.div`
 		css`
 			padding: 12px 20px;
 			border-radius: 15px;
-			text-decoration: none;
 			cursor: pointer;
 
 			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
-
-			background-color: #d3deee;
+			background-color: #dde7f4;
+			&:hover {
+				background: #e1e8f3;
+			}
 		`}
 `;
