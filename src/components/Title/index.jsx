@@ -22,10 +22,19 @@ const StyledTextfieldTitle = styled.h1`
 			font-size: var(--fontsize_Textfield_title);
 		`}
 
-		${({variant}) =>
+	${({variant}) =>
 		variant === 'startSession_Title' &&
 		css`
 			margin-bottom: 15px;
 			font-size: var(--fontsize_HeaderTitle);
+		`}
+
+	${({variant}) =>
+		variant === 'Textbox_Home' &&
+		css`
+			margin-bottom: 5px;
+			margin-left: 7px;
+
+			font-size: var(--fontsize_Textfield_title);
 		`}
 `;
