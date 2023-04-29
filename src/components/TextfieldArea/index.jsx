@@ -9,10 +9,11 @@ const StyledTextfieldArea = styled.div`
 		variant === 'textFieldArea' &&
 		css`
 			margin-top: 20px;
+			width: 80%;
+
 			display: flex;
 			flex-direction: column;
 
-			width: 80%;
 			&: nth-child(1) {
 				margin-top: 120px;
 			}
