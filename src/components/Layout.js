@@ -28,7 +28,7 @@ const StyledMain = styled.main`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	min-height: calc(667px - 60px);
+	height: calc(667px - 60px);
 	background: rgb(221, 231, 244);
 	background: linear-gradient(55deg, rgba(221, 231, 244, 1) 0%, rgba(191, 206, 226, 1) 10%);
 `;
