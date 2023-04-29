@@ -1,10 +1,10 @@
 import styled, {css} from 'styled-components';
 
-export default function Textfield({children, variant = 'default'}) {
-	return <StyledTextfield variant={variant}>{children}</StyledTextfield>;
+export default function TextBox({children, variant = 'default'}) {
+	return <StyledTextbox variant={variant}>{children}</StyledTextbox>;
 }
 
-const StyledTextfield = styled.div`
+const StyledTextbox = styled.div`
 	${({variant}) =>
 		variant === 'default' &&
 		css`
@@ -22,7 +22,7 @@ const StyledTextfield = styled.div`
 
 			box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
-			border-radius: 20px;
+			border-radius: 10px;
 			background: rgb(237, 243, 251);
 			background: linear-gradient(207deg, #eff4fa 0%, #d6dfed 20%);
 		`}
