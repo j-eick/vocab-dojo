@@ -2,10 +2,10 @@ import styled, {css} from 'styled-components';
 
 console.clear();
 
-export default function Button({type = 'button', variant, children, onClick, ...props}) {
+export default function Button({type = 'button', variant, children, onClick, name, ...props}) {
 	return (
 		<>
-			<StyledButton onClick={onClick} type={type} variant={variant} {...props}>
+			<StyledButton onClick={onClick} type={type} variant={variant} name={name} {...props}>
 				{children}
 			</StyledButton>
 		</>
@@ -13,6 +13,16 @@ export default function Button({type = 'button', variant, children, onClick, ...
 }
 
 const StyledButton = styled.button`
+	${({variant}) =>
+		variant === 'default' &&
+		css`
+			width: fit-content;
+			border: none;
+			border-radius: 20px;
+			display: grid;
+			place-items: center;
+		`}
+
 	${({variant}) =>
 		variant === 'profileMenuModal' &&
 		css`
@@ -27,8 +37,9 @@ const StyledButton = styled.button`
 			border-radius: 50%;
 			border: none;
 		`}
+
 	${({variant}) =>
-		variant === 'startLearning' &&
+		variant === 'startSession' &&
 		css`
 			height: 30px;
 			width: 50px;
@@ -36,6 +47,7 @@ const StyledButton = styled.button`
 			border-radius: 10%;
 			border: none;
 		`}
+
 	${({variant}) =>
 		variant === 'nextFlashCard' &&
 		css`
@@ -46,13 +58,11 @@ const StyledButton = styled.button`
 			border-radius: 10%;
 			border: none;
 		`}
+
 	${({variant}) =>
-		variant === 'default' &&
+		variant === 'createFlashcard' &&
 		css`
 			width: fit-content;
-			border: none;
-			border-radius: 20px;
-			display: grid;
-			place-items: center;
+			padding: 10px;
 		`}
 `;
