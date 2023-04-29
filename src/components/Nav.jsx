@@ -52,7 +52,6 @@ const StyledNav = styled.nav`
 
 	background: rgb(221, 231, 244);
 	background: linear-gradient(55deg, #acc1dd 10%), #ceddf1 0%;
-	border: 1px solid black;
 `;
 const StyledUl = styled.ul`
 	height: 100%;
