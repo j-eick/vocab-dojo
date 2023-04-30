@@ -18,7 +18,7 @@ export default function Nav() {
 					<Link href="/" aria-label="Home">
 						{router.asPath === '/' ? (
 							<StyledDiv>
-								<Icon path={mdiHomeVariant} size={2} />
+								<Icon path={mdiHomeVariant} size={2.3} />
 							</StyledDiv>
 						) : (
 							<Icon path={mdiHomeVariantOutline} size={2} />
@@ -29,7 +29,7 @@ export default function Nav() {
 					<Link href="/create-vocab" aria-label="Add new vocab">
 						{router.asPath === '/create-vocab' ? (
 							<StyledDiv>
-								<Icon path={mdiCardPlus} size={2} />
+								<Icon path={mdiCardPlus} size={2.3} />
 							</StyledDiv>
 						) : (
 							<Icon path={mdiCardPlusOutline} size={2} />
@@ -40,7 +40,7 @@ export default function Nav() {
 					<Link href="/allVocabs">
 						{router.asPath === '/allVocabs' ? (
 							<StyledDiv>
-								<Icon path={mdiListBox} size={2} />
+								<Icon path={mdiListBox} size={2.3} />
 							</StyledDiv>
 						) : (
 							<Icon path={mdiListBoxOutline} size={2} />
@@ -69,11 +69,14 @@ const StyledUl = styled.ul`
 const StyledLi = styled.li`
 	margin: 0 20px;
 	padding: 10px 10px;
+
 	cursor: pointer;
 `;
 
 const StyledDiv = styled.div`
-	padding: 3px 10px;
-	border: 1px solid black;
+	width: 50px;
+	padding: 0px 10px;
+
+	border-bottom: 2px solid black;
 	border-radius: 5px;
 `;
