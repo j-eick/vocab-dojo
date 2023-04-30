@@ -30,10 +30,12 @@ const StyledTextfieldTitle = styled.h1`
 		`}
 
 	${({variant}) =>
-		variant === 'Textbox_Home' &&
+		variant === 'Textbox_Title' &&
 		css`
-			margin-bottom: 5px;
-			margin-left: 7px;
+			margin-bottom: 7px;
+			padding: 0 7px 0 7px;
+
+			width: fit-content;
 
 			font-size: var(--fontsize_Textfield_title);
 		`}
