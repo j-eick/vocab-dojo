@@ -19,16 +19,16 @@ export default function HomePage() {
 			{/* #############   TEXTFIELD AREAS   ################ */}
 
 			<TextfieldArea variant="textFieldArea">
-				<Title variant="Textbox_Home">Hard to remember</Title>
+				<Title variant="Textbox_Title">Hard to remember</Title>
 				<Textfield variant="textfield_mainpage">Example 2</Textfield>
 			</TextfieldArea>
 			<TextfieldArea variant="textFieldArea">
-				<Title variant="Textbox_Home">Last Added</Title>
+				<Title variant="Textbox_Title">Last Added</Title>
 				<Textfield variant="textfield_mainpage">Example</Textfield>
 			</TextfieldArea>
 
 			{/* #############   START SESSION   ################ */}
-			<Title variant="startSession_Title">Train your brain</Title>
+			<Title variant="Textbox_Title">Train your brain</Title>
 			<StartSession variant="startSession" />
 		</Layout>
 	);
