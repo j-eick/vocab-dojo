@@ -17,15 +17,14 @@ const CustomLinkDesign = styled.div`
 	${({variant}) =>
 		variant === 'startSession' &&
 		css`
-			height: 20px;
-
-			margin-top: 30px;
-			padding: 20px 30px 30px 30px;
-			border: none;
-			border-radius: 10px;
-			text-decoration: none;
+			padding: 12px 20px;
+			border-radius: 15px;
 			cursor: pointer;
 
-			background-color: lightblue;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
+			background-color: #dde7f4;
+			&:hover {
+				background: #e1e8f3;
+			}
 		`}
 `;

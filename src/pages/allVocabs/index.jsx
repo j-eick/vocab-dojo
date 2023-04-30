@@ -2,13 +2,14 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
+import Textbox from '../../components/Texfield/Textbox';
 import {getAllFlashcards} from '../../services/vocabServices';
 
 console.clear();
 
 export async function getStaticProps() {
 	const allFlashcards = await getAllFlashcards();
-	console.log(allFlashcards.length);
+	console.log('cards in deck: ' + allFlashcards.length);
 
 	return {
 		props: {allFlashcards},
@@ -26,8 +27,8 @@ export default function VocabListPage({allFlashcards}) {
 				{allFlashcards.map(word => (
 					<StyledLi key={word.id}>
 						<StyledCard>
-							<StyledP>{word.front}</StyledP>
-							<StyledP>{word.back}</StyledP>
+							<Textbox variant="textfield_overview">{word.front}</Textbox>
+							<Textbox variant="textfield_overview">{word.back}</Textbox>
 						</StyledCard>
 					</StyledLi>
 				))}
@@ -41,31 +42,35 @@ export default function VocabListPage({allFlashcards}) {
 // #################################
 
 const StyledUl = styled.ul`
+	margin-top: 120px;
+	padding: 30px 20px;
+	width: 80%;
+	max-height: 450px;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 80%;
-	gap: 15px;
-	border: 1px solid black;
+
+	border-top: 3px solid #dde7f4;
+	border-bottom: 3px solid #dde7f4;
+
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	overflow-y: scroll;
+	gap: 25px;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 `;
 
 const StyledLi = styled.li`
-	display: grid;
-	grid-template-columns: 1fr;
-	align-items: left;
 	width: 100%;
-	gap: 15px;
-	background-color: lightcoral;
 `;
 
 const StyledCard = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	padding: 0 20px;
-	gap: 15px;
-`;
-
-const StyledP = styled.p`
-	padding: 0 10px;
-	background-color: lightcyan;
+	/* padding: 10px 0; */
+	gap: 5px;
 `;

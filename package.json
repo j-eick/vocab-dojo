@@ -20,12 +20,15 @@
     "clear": "rm -rf .next cache out"
   },
   "dependencies": {
+    "@mdi/js": "^7.2.96",
+    "@mdi/react": "^1.6.1",
     "axios": "0.27.2",
     "mongoose": "^7.0.1",
     "nanoid": "3.3.4",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
     "styled-components": "5.3.5",
     "zustand": "4.1.1"
   },
