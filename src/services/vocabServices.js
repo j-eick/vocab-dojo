@@ -35,9 +35,6 @@ export async function getFlashcardById(id_) {
 
 	const flashcard = await Flashcard.findById(id_);
 
-	const test = await flashcard;
-	console.log(test);
-
 	const {id, front, back} = flashcard;
 	return {id, front, back};
 }
