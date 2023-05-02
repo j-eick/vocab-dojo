@@ -57,9 +57,13 @@ const Front = styled.div`
 	grid-template-rows: 35% 65%;
 	backface-visibility: hidden;
 
+	border: 1px solid #e5ecf5;
 	border-radius: 30px;
 
-	background-color: lightcoral;
+	background: rgb(237, 243, 251);
+	background: linear-gradient(207deg, #eff4fa 0%, #d6dfed 20%);
+
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 18px, rgba(0, 0, 0, 0.22) 0px 0px 5px;
 `;
 const Back = styled.div`
 	position: absolute;
@@ -71,25 +75,28 @@ const Back = styled.div`
 	place-items: center;
 	backface-visibility: hidden;
 
+	border: 1px solid #e5ecf5;
 	border-radius: 30px;
 
-	background: coral;
+	background: rgb(237, 243, 251);
+	background: linear-gradient(137deg, #eff4fa 0%, #d6dfed 20%);
 `;
 
 const StyledH1 = styled.h1`
-	height: 90%;
-	width: 90%;
+	height: 80%;
+	width: 80%;
 
 	display: grid;
 	place-items: center;
 
-	background-color: darkgrey;
+	border: 1px solid gray;
 `;
 const StyledP = styled.p`
-	height: 90%;
-	width: 90%;
+	height: 80%;
+	width: 80%;
 
 	display: grid;
 	place-items: center;
-	background-color: grey;
+
+	border: 1px solid gray;
 `;
