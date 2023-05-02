@@ -14,6 +14,7 @@ export async function getStaticProps() {
 	const sumAllFlashcards = await allFlashcards.length;
 	const startingCard = await getRandomNum(sumAllFlashcards);
 	const newArray = await shuffleCards(allFlashcards);
+	console.log(newArray);
 
 	return {
 		props: {startingCard, newArray},
@@ -23,6 +24,9 @@ export async function getStaticProps() {
 export default function StudySession({startingCard, newArray}) {
 	const [currentCard, setCurrentCard] = useState(newArray[startingCard]);
 
+	console.log('currentCard');
+	console.log(currentCard);
+
 	function getRandomCard() {
 		const sumAllFlashcards = newArray.length;
 		const randomNum = getRandomNum(sumAllFlashcards);
@@ -31,7 +35,12 @@ export default function StudySession({startingCard, newArray}) {
 
 	return (
 		<Layout>
-			<FlashCard front={currentCard.front} back={currentCard.back} />
+			<FlashCard
+				frontTitle={currentCard.frontTitle}
+				frontDescription={currentCard.frontDescription}
+				backTitle={currentCard.backTitle}
+				backDescription={currentCard.backDescription}
+			/>
 			<NextFlashCardButton onClick={() => setCurrentCard(getRandomCard())} />
 		</Layout>
 	);

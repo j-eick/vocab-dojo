@@ -8,8 +8,10 @@ const {Schema} = mongoose;
  */
 const flashcardSchema = new Schema(
 	{
-		front: {type: String, required: true},
-		back: {type: String, required: true},
+		frontTitle: {type: String},
+		frontDescription: {type: String, required: true},
+		backTitle: {type: String},
+		backDescription: {type: String, required: true},
 	}
 	// {collection: 'flashcards'}
 );

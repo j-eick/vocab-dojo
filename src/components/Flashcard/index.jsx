@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 console.clear();
 
-export default function FlashCard({front = 'DefaultFront', back = 'DefaultBack'}) {
+export default function FlashCard({frontTitle, frontDescription, backTitle, backDescription}) {
 	const [turn, setTurn] = useState(false);
 
 	function handleClick() {
@@ -15,10 +15,13 @@ export default function FlashCard({front = 'DefaultFront', back = 'DefaultBack'}
 			<CardContainer onClick={handleClick}>
 				<Card turn={turn}>
 					<Front>
-						<StyledH1>{front}</StyledH1>
-						<StyledP>{front}</StyledP>
+						<StyledH1>{frontTitle}</StyledH1>
+						<StyledP>{frontDescription}</StyledP>
 					</Front>
-					<Back>{back}</Back>
+					<Back>
+						<StyledH1>{backTitle}</StyledH1>
+						<StyledP>{backDescription}</StyledP>
+					</Back>
 				</Card>
 			</CardContainer>
 		</>

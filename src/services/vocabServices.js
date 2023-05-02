@@ -25,8 +25,8 @@ export async function getAllFlashcards() {
 	 */
 	const flashcards = await Flashcard.find();
 
-	return flashcards.map(({id, front, back}) => {
-		return {id, front, back};
+	return flashcards.map(({id, frontTitle, frontDescription, backTitle, backDescription}) => {
+		return {id, frontTitle, frontDescription, backTitle, backDescription};
 	});
 }
 
@@ -35,6 +35,6 @@ export async function getFlashcardById(id_) {
 
 	const flashcard = await Flashcard.findById(id_);
 
-	const {id, front, back} = flashcard;
-	return {id, front, back};
+	const {id, frontTitle, frontDescription, backTitle, backDescription} = flashcard;
+	return {id, frontTitle, frontDescription, backTitle, backDescription};
 }
