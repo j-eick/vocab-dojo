@@ -26,8 +26,14 @@ export default function VocabListPage({allFlashcards}) {
 				{allFlashcards.map(word => (
 					<StyledLi key={word.id}>
 						<StyledCard>
-							<Textbox variant="textfield_overview">{word.front}</Textbox>
-							<Textbox variant="textfield_overview">{word.back}</Textbox>
+							<Textbox variant="textfield_overview">
+								<p style={{color: 'red'}}>{word.frontTitle}</p>
+								<p>{word.frontDescription}</p>
+							</Textbox>
+							<Textbox variant="textfield_overview">
+								<p style={{color: 'red'}}>{word.backTitle}</p>
+								<p>{word.backDescription}</p>
+							</Textbox>
 						</StyledCard>
 					</StyledLi>
 				))}
