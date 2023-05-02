@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import ProfileButton from './Button/ProfileButton.jsx';
+// import ProfileButton from './Button/ProfileButton.jsx';
 import Nav from './Nav.jsx';
 
 const Canvas = styled.div`
@@ -38,7 +38,6 @@ export default function Layout({children}) {
 		<>
 			<Canvas>
 				<ResponsiveContainer>
-					<ProfileButton></ProfileButton>
 					<StyledMain>{children}</StyledMain>
 					<Nav />
 				</ResponsiveContainer>
