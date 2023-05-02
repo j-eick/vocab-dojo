@@ -10,18 +10,64 @@ export default function FlashCard({frontTitle, frontDescription, backTitle, back
 		setTurn(!turn);
 	}
 
+	function renderFront() {
+		if (frontTitle !== '' && frontDescription !== '') {
+			return (
+				<Front>
+					<StyledH1>{frontTitle}</StyledH1>
+					<StyledP>{frontDescription}</StyledP>
+				</Front>
+			);
+		} else if (frontTitle !== '' || frontDescription !== '') {
+			if (frontTitle !== '') {
+				return (
+					<Front>
+						<StyledH1>{frontTitle}</StyledH1>
+					</Front>
+				);
+			} else if (frontDescription !== '') {
+				return (
+					<Front>
+						<StyledH1>{frontDescription}</StyledH1>
+					</Front>
+				);
+			}
+			return null;
+		}
+	}
+
+	function renderBack() {
+		if (backTitle !== '' && backDescription !== '') {
+			return (
+				<Back>
+					<StyledH1>{backTitle}</StyledH1>
+					<StyledP>{backDescription}</StyledP>
+				</Back>
+			);
+		} else if (backTitle !== '' || backDescription !== '') {
+			if (backTitle !== '') {
+				return (
+					<Back>
+						<StyledP>{backTitle}</StyledP>
+					</Back>
+				);
+			} else if (backDescription !== '') {
+				return (
+					<Back>
+						<StyledP>{backDescription}</StyledP>
+					</Back>
+				);
+			}
+			return null;
+		}
+	}
+
 	return (
 		<>
 			<CardContainer onClick={handleClick}>
 				<Card turn={turn}>
-					<Front>
-						<StyledH1>{frontTitle}</StyledH1>
-						<StyledP>{frontDescription}</StyledP>
-					</Front>
-					<Back>
-						<StyledH1>{backTitle}</StyledH1>
-						<StyledP>{backDescription}</StyledP>
-					</Back>
+					{renderFront()}
+					{renderBack()}
 				</Card>
 			</CardContainer>
 		</>
