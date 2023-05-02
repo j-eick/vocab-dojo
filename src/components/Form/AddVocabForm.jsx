@@ -17,7 +17,7 @@ export default function AddVocabForm({onSubmit}) {
 	const handleSubmit = event => {
 		event.preventDefault();
 
-		if ((frontDescription && backDescription) !== '') {
+		if ((frontTitle || frontDescription) && (backTitle || backDescription) !== '') {
 			onSubmit({
 				frontTitle: frontTitle,
 				frontDescription: frontDescription,
@@ -25,7 +25,7 @@ export default function AddVocabForm({onSubmit}) {
 				backDescription: backDescription,
 			});
 		} else {
-			alert('both sides need input!');
+			alert('Missing input... no card');
 		}
 		event.target.elements.frontSide_title.value = '';
 		event.target.elements.frontSide_description.value = '';
