@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 		--fontsize_Textfield_createVocab: 1rem;
 		--fontsize_defaultText: 1.5rem;
 		--fontsize_ButtonText: 2rem;
+		--fontsize_Placeholder_MultilineInput: 3rem;
 	}
 
 	*,
