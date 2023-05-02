@@ -18,7 +18,7 @@ const StyledForm = styled.form`
 	${({variant}) =>
 		variant === 'addFlashcard_Form' &&
 		css`
-			margin-top: 120px;
+			margin-top: 80px;
 
 			width: 80%;
 
