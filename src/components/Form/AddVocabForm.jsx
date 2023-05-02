@@ -1,8 +1,8 @@
 import {useState} from 'react';
 
 import CreateFlashcardButton from '../Button/CreateFlashcardButton';
-import FrontBackCardInput from '../InputMultiline/FrontBackCard';
-import LabelTwoTags from '../Label';
+import Inputfield from '../Input';
+import CardInputMultiline from '../InputMultiline/CardInputMultiline';
 
 import Form from './';
 
@@ -29,29 +29,53 @@ export default function AddVocabForm({onSubmit}) {
 
 	return (
 		<Form onSubmit={handleSubmit} variant="addFlashcard_Form">
-			<LabelTwoTags htmlFor="frontSide" variant="createVocab_frontBack">
-				Frontside:
-			</LabelTwoTags>
-			<FrontBackCardInput
-				id="frontSide"
+			{/* **************  FRONTSIDE title  ************** */}
+			{/* <LabelTwoTags htmlFor="frontSide_title" variant="createVocab_input" /> */}
+			<Inputfield
+				id="frontSide_title"
 				type="text"
-				name="frontSide"
+				name="frontSide_title"
+				variant="input_createVocabs_title"
+				placeholder="optional"
 				onChange={event => {
 					setFrontside(event.target.value);
 				}}
-				variant="input_createVocabs"
 			/>
-			<LabelTwoTags htmlFor="backSide" variant="createVocab_frontBack">
-				Backside:
-			</LabelTwoTags>
-			<FrontBackCardInput
-				id="backSide"
+			{/* **************  FRONTSIDE Description  ************** */}
+			{/* <LabelTwoTags htmlFor="frontSide_description" variant="createVocab_input" /> */}
+			<CardInputMultiline
+				id="frontSide_description"
 				type="text"
-				name="backSide"
+				name="frontSide_description"
+				variant="input_createVocabs_text"
+				onChange={event => {
+					setFrontside(event.target.value);
+				}}
+				placeholder="front"
+			/>
+			{/* **************  BACKSIDE title  ************** */}
+			{/* <LabelTwoTags htmlFor="backSide_title" variant="createVocab_input" /> */}
+			<Inputfield
+				id="backSide_title"
+				type="text"
+				name="backSide_title"
+				variant="input_createVocabs_title"
+				placeholder="optional"
+				onChange={event => {
+					setFrontside(event.target.value);
+				}}
+			/>
+			{/* **************  BACKSIDE description  ************** */}
+			{/* <LabelTwoTags htmlFor="backSide_description" variant="createVocab_input" /> */}
+			<CardInputMultiline
+				id="backSide_description"
+				type="text"
+				name="backSide_description"
+				variant="input_createVocabs_text"
 				onChange={event => {
 					setBackside(event.target.value);
 				}}
-				variant="input_createVocabs"
+				placeholder="back"
 			/>
 			<div style={{display: 'flex', justifyContent: 'flex-end'}}>
 				<CreateFlashcardButton type="submit" name="submit" variant="createFlashcard">
