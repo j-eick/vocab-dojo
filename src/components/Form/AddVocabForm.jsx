@@ -9,22 +9,28 @@ import Form from './';
 console.clear();
 
 export default function AddVocabForm({onSubmit}) {
-	const [frontside, setFrontside] = useState('');
-	const [backside, setBackside] = useState('');
+	const [frontTitle, setFrontTitle] = useState('');
+	const [frontDescription, setFrontDescription] = useState('');
+	const [backTitle, setBackTitle] = useState('');
+	const [backDescription, setBackDescription] = useState('');
 
 	const handleSubmit = event => {
 		event.preventDefault();
 
-		if ((frontside && backside) !== '') {
+		if ((frontDescription && backDescription) !== '') {
 			onSubmit({
-				front: frontside,
-				back: backside,
+				frontTitle: frontTitle,
+				frontDescription: frontDescription,
+				backTitle: backTitle,
+				backDescription: backDescription,
 			});
 		} else {
 			alert('both sides need input!');
 		}
-		event.target.elements.frontSide.value = '';
-		event.target.elements.backSide.value = '';
+		event.target.elements.frontSide_title.value = '';
+		event.target.elements.frontSide_description.value = '';
+		event.target.elements.backSide_title.value = '';
+		event.target.elements.backSide_description.value = '';
 	};
 
 	return (
@@ -38,7 +44,7 @@ export default function AddVocabForm({onSubmit}) {
 				variant="input_createVocabs_title"
 				placeholder="optional"
 				onChange={event => {
-					setFrontside(event.target.value);
+					setFrontTitle(event.target.value);
 				}}
 			/>
 			{/* **************  FRONTSIDE Description  ************** */}
@@ -48,10 +54,10 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="frontSide_description"
 				variant="input_createVocabs_text"
-				onChange={event => {
-					setFrontside(event.target.value);
-				}}
 				placeholder="front"
+				onChange={event => {
+					setFrontDescription(event.target.value);
+				}}
 			/>
 			{/* **************  BACKSIDE title  ************** */}
 			{/* <LabelTwoTags htmlFor="backSide_title" variant="createVocab_input" /> */}
@@ -62,7 +68,7 @@ export default function AddVocabForm({onSubmit}) {
 				variant="input_createVocabs_title"
 				placeholder="optional"
 				onChange={event => {
-					setFrontside(event.target.value);
+					setBackTitle(event.target.value);
 				}}
 			/>
 			{/* **************  BACKSIDE description  ************** */}
@@ -73,7 +79,7 @@ export default function AddVocabForm({onSubmit}) {
 				name="backSide_description"
 				variant="input_createVocabs_text"
 				onChange={event => {
-					setBackside(event.target.value);
+					setBackDescription(event.target.value);
 				}}
 				placeholder="back"
 			/>
