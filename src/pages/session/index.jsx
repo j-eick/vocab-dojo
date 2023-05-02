@@ -5,25 +5,28 @@ import FlashCard from '../../components/Flashcard';
 import Layout from '../../components/Layout';
 import {getAllFlashcards} from '../../services/vocabServices';
 import {getRandomNum} from '../../utils/functions';
+import {shuffleCards} from '../../utils/functions';
 
 console.clear();
 
 export async function getStaticProps() {
-	const startingCard = getRandomNum(4);
 	const allFlashcards = await getAllFlashcards();
+	const sumAllFlashcards = await allFlashcards.length;
+	const startingCard = await getRandomNum(sumAllFlashcards);
+	const newArray = await shuffleCards(allFlashcards);
 
 	return {
-		props: {startingCard, allFlashcards},
+		props: {startingCard, newArray},
 	};
 }
 
-export default function StudySession({startingCard, allFlashcards}) {
-	const [currentCard, setCurrentCard] = useState(allFlashcards[startingCard]);
+export default function StudySession({startingCard, newArray}) {
+	const [currentCard, setCurrentCard] = useState(newArray[startingCard]);
 
 	function getRandomCard() {
-		const sumAllFlashcards = allFlashcards.length;
+		const sumAllFlashcards = newArray.length;
 		const randomNum = getRandomNum(sumAllFlashcards);
-		return allFlashcards[randomNum];
+		return newArray[randomNum];
 	}
 
 	return (

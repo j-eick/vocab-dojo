@@ -9,7 +9,6 @@ console.clear();
 
 export async function getStaticProps() {
 	const allFlashcards = await getAllFlashcards();
-	console.log('cards in deck: ' + allFlashcards.length);
 
 	return {
 		props: {allFlashcards},
