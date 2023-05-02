@@ -16,7 +16,7 @@ const StyledLabel = styled.label`
 		`}
 
 	${({variant}) =>
-		variant === 'createVocab_frontBack' &&
+		variant === 'createVocab_input' &&
 		css`
 			margin-bottom: 5px;
 			margin-left: 7px;
