@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 console.clear();
 
@@ -14,21 +14,21 @@ export default function FlashCard({frontTitle, frontDescription, backTitle, back
 		if (frontTitle !== '' && frontDescription !== '') {
 			return (
 				<Front>
-					<StyledH1>{frontTitle}</StyledH1>
-					<StyledP>{frontDescription}</StyledP>
+					<StyledH1 variant="FRONT_title_and_description">{frontTitle}</StyledH1>
+					<StyledP variant="FRONT_title_and_description">{frontDescription}</StyledP>
 				</Front>
 			);
 		} else if (frontTitle !== '' || frontDescription !== '') {
 			if (frontTitle !== '') {
 				return (
 					<Front>
-						<StyledH1>{frontTitle}</StyledH1>
+						<StyledH1 variant="FRONT_title">{frontTitle}</StyledH1>
 					</Front>
 				);
 			} else if (frontDescription !== '') {
 				return (
 					<Front>
-						<StyledH1>{frontDescription}</StyledH1>
+						<StyledP variant="FRONT_description">{frontDescription}</StyledP>
 					</Front>
 				);
 			}
@@ -40,21 +40,21 @@ export default function FlashCard({frontTitle, frontDescription, backTitle, back
 		if (backTitle !== '' && backDescription !== '') {
 			return (
 				<Back>
-					<StyledH1>{backTitle}</StyledH1>
-					<StyledP>{backDescription}</StyledP>
+					<StyledH1 variant="BACK_title_and_description">{backTitle}</StyledH1>
+					<StyledP variant="BACK_title_and_description">{backDescription}</StyledP>
 				</Back>
 			);
 		} else if (backTitle !== '' || backDescription !== '') {
 			if (backTitle !== '') {
 				return (
 					<Back>
-						<StyledP>{backTitle}</StyledP>
+						<StyledH1 variant="BACK_title">{backTitle}</StyledH1>
 					</Back>
 				);
 			} else if (backDescription !== '') {
 				return (
 					<Back>
-						<StyledP>{backDescription}</StyledP>
+						<StyledP variant="BACK_description">{backDescription}</StyledP>
 					</Back>
 				);
 			}
@@ -98,12 +98,13 @@ const Card = styled.div`
 
 const Front = styled.div`
 	position: absolute;
+	/* position: relative; */
 	width: 100%;
 	height: 100%;
 
-	display: grid;
-	place-items: center;
-	grid-template-rows: 35% 65%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	backface-visibility: hidden;
 
 	border: 1px solid #e5ecf5;
@@ -120,8 +121,9 @@ const Back = styled.div`
 	height: 100%;
 	transform: rotateX(180deg);
 
-	display: grid;
-	place-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	backface-visibility: hidden;
 
 	border: 1px solid #e5ecf5;
@@ -132,20 +134,97 @@ const Back = styled.div`
 `;
 
 const StyledH1 = styled.h1`
-	height: 80%;
-	width: 80%;
+	height: 100%;
+	width: 100%;
 
 	display: grid;
 	place-items: center;
 
 	border: 1px solid gray;
+
+	${({variant}) =>
+		variant === 'FRONT_title_and_description' &&
+		css`
+			margin-top: 10px;
+			height: 20%;
+			width: 90%;
+
+			font-size: var(--fontsize_Flashcard_title);
+		`}
+	${({variant}) =>
+		variant === 'FRONT_title' &&
+		css`
+			margin-top: 40px;
+			height: 50%;
+			width: 90%;
+
+			font-size: var(--fontsize_Flashcard_title);
+		`}
+	${({variant}) =>
+		variant === 'BACK_title_and_description' &&
+		css`
+			margin-top: 10px;
+			height: 20%;
+			width: 90%;
+
+			font-size: var(--fontsize_Flashcard_title);
+		`}
+	${({variant}) =>
+		variant === 'BACK_title' &&
+		css`
+			margin-top: 40px;
+			height: 50%;
+			width: 90%;
+
+			font-size: var(--fontsize_Flashcard_title);
+		`}
 `;
-const StyledP = styled.p`
-	height: 80%;
-	width: 80%;
 
+const StyledP = styled.p`
+	height: 100%;
+	width: 100%;
 	display: grid;
 	place-items: center;
 
-	border: 1px solid gray;
+	${({variant}) =>
+		variant === 'FRONT_title_and_description' &&
+		css`
+			margin-top: 5px;
+			width: 90%;
+			height: 65%;
+			border: 1px solid grey;
+
+			font-size: var(--fontsize_Flashcard_description);
+		`}
+	${({variant}) =>
+		variant === 'FRONT_description' &&
+		css`
+			margin-top: 10px;
+			height: 90%;
+			width: 90%;
+			border: 1px solid gray;
+
+			font-size: var(--fontsize_Flashcard_description);
+		`}
+
+	${({variant}) =>
+		variant === 'BACK_title_and_description' &&
+		css`
+			margin-top: 5px;
+			width: 90%;
+			height: 65%;
+			border: 1px solid grey;
+
+			font-size: var(--fontsize_Flashcard_description);
+		`}
+	${({variant}) =>
+		variant === 'BACK_description' &&
+		css`
+			margin-top: 10px;
+			height: 90%;
+			width: 90%;
+			border: 1px solid gray;
+
+			font-size: var(--fontsize_Flashcard_description);
+		`}
 `;
