@@ -19,14 +19,15 @@ export default function AddVocabForm({onSubmit}) {
 
 		if ((frontTitle || frontDescription) && (backTitle || backDescription) !== '') {
 			onSubmit({
-				frontTitle: frontTitle,
-				frontDescription: frontDescription,
-				backTitle: backTitle,
-				backDescription: backDescription,
+				frontTitle,
+				frontDescription,
+				backTitle,
+				backDescription,
 			});
 		} else {
 			alert('Missing input... no card');
 		}
+
 		event.target.elements.frontSide_title.value = '';
 		event.target.elements.frontSide_description.value = '';
 		event.target.elements.backSide_title.value = '';
