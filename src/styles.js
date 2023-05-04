@@ -10,6 +10,10 @@ export const GlobalStyle = createGlobalStyle`
 		--fontsize_defaultText: 1.5rem;
 		--fontsize_ButtonText: 2rem;
 		--fontsize_Placeholder_MultilineInput: 3rem;
+
+		/* +++++  FLASHCARD FONTSIZES  +++++ */
+		--fontsize_Flashcard_title: 2.25rem;
+		--fontsize_Flashcard_description: 1.75rem;
 	}
 
 	*,
