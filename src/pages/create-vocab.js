@@ -19,7 +19,6 @@ export default function CreateVocab() {
 			method: 'POST',
 			body: JSON.stringify(data),
 		});
-		console.log(data);
 	}
 
 	return (
