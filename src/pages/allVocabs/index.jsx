@@ -1,9 +1,11 @@
 import Head from 'next/head';
+import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 import DeleteFlashcards from '../../components/Button/DeleteFlashcardButton';
 import Layout from '../../components/Layout';
 import Textbox from '../../components/Texfield/Textbox';
+import {useFetch} from '../../hooks/useFetch';
 import {getAllFlashcards} from '../../services/vocabServices';
 
 console.clear();
@@ -16,7 +18,29 @@ export async function getStaticProps() {
 	};
 }
 
+/**
+ * 1.	List of vocabs is passed to useState
+ * 2.	stateVariable sends vocabs to card-element
+ * 3. 	Deletebutton empties state-variable.
+ * 4. 	DB gets updated with emptied list, when url !== 'allVocabs
+ */
 export default function VocabListPage({allFlashcards}) {
+	const [cardstack, setCardstack] = useState(allFlashcards);
+	const [cardstackEmpty, setCardstackFull] = useState(false);
+	const fetchAPI = useFetch();
+	console.log('cardstack is empty: ' + cardstackEmpty);
+
+	useEffect(() => {
+		setCardstackFull(!setCardstackFull);
+	}, [cardstack]);
+
+	async function deleteHandler() {
+		await fetchAPI('/api/flashcard/delete', {
+			method: 'DELETE',
+		});
+		setCardstack('');
+	}
+
 	return (
 		<Layout>
 			<Head>
@@ -24,7 +48,7 @@ export default function VocabListPage({allFlashcards}) {
 				<meta key="description" name="description" content="About" />
 			</Head>
 			<StyledUl>
-				{allFlashcards.map(word => (
+				{cardstack?.map(word => (
 					<StyledLi key={word.id}>
 						<StyledCard>
 							<Textbox variant="textfield_overview">
@@ -39,7 +63,7 @@ export default function VocabListPage({allFlashcards}) {
 					</StyledLi>
 				))}
 			</StyledUl>
-			<DeleteFlashcards />
+			{cardstackEmpty && <DeleteFlashcards onClick={deleteHandler} />}
 		</Layout>
 	);
 }
