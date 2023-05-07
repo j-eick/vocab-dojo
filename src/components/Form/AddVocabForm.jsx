@@ -17,20 +17,33 @@ export default function AddVocabForm({onSubmit}) {
 	const handleSubmit = event => {
 		event.preventDefault();
 
-		onSubmit({
-			frontTitle,
-			frontDescription,
-			backTitle,
-			backDescription,
-		});
-		setFrontTitle('');
-		setFrontDescription('');
-		setBackTitle('');
-		setBackDescription('');
-		event.target.elements.frontSide_title.value = '';
-		event.target.elements.frontSide_description.value = '';
-		event.target.elements.backSide_title.value = '';
-		event.target.elements.backSide_description.value = '';
+		if (
+			((frontTitle !== '' || frontDescription !== '') &&
+				(backTitle !== '' || backDescription !== '')) ||
+			((frontTitle !== '' || frontDescription !== '') &&
+				backTitle !== '' &&
+				backDescription !== '') ||
+			(frontTitle !== '' &&
+				frontDescription !== '' &&
+				(backTitle !== '' || backDescription !== ''))
+		) {
+			onSubmit({
+				frontTitle,
+				frontDescription,
+				backTitle,
+				backDescription,
+			});
+			setFrontTitle('');
+			setFrontDescription('');
+			setBackTitle('');
+			setBackDescription('');
+			event.target.elements.frontSide_title.value = '';
+			event.target.elements.frontSide_description.value = '';
+			event.target.elements.backSide_title.value = '';
+			event.target.elements.backSide_description.value = '';
+		} else {
+			alert('Missing input... no card');
+		}
 	};
 
 	return (
@@ -42,7 +55,7 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="frontSide_title"
 				variant="input_createVocabs_title"
-				placeholder="optional"
+				// placeholder="optional"
 				onChange={event => {
 					setFrontTitle(event.target.value);
 				}}
@@ -54,7 +67,7 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="frontSide_description"
 				variant="input_createVocabs_text"
-				placeholder="front"
+				// placeholder="front"
 				onChange={event => {
 					setFrontDescription(event.target.value);
 				}}
@@ -66,7 +79,7 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="backSide_title"
 				variant="input_createVocabs_title"
-				placeholder="optional"
+				// placeholder="optional"
 				onChange={event => {
 					setBackTitle(event.target.value);
 				}}
@@ -78,7 +91,7 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="backSide_description"
 				variant="input_createVocabs_text"
-				placeholder="back"
+				// placeholder="back"
 				onChange={event => {
 					setBackDescription(event.target.value);
 				}}
