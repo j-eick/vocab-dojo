@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
+import DeleteFlashcards from '../../components/Button/DeleteFlashcardButton';
 import Layout from '../../components/Layout';
 import Textbox from '../../components/Texfield/Textbox';
 import {getAllFlashcards} from '../../services/vocabServices';
@@ -38,6 +39,7 @@ export default function VocabListPage({allFlashcards}) {
 					</StyledLi>
 				))}
 			</StyledUl>
+			<DeleteFlashcards />
 		</Layout>
 	);
 }
