@@ -1,38 +1,25 @@
 import create from 'zustand';
 
 export const vocabStore = create(set => ({
-	vocabList: [
-		{
-			id: '1',
-			front: 'this is',
-			back: 'an expamle',
-		},
-		{
-			id: '2',
-			front: 'yo',
-			back: 'mama',
-		},
-		{
-			id: '3',
-			front: 'yes',
-			back: 'sir',
-		},
-		{
-			id: '4',
-			front: 'ha',
-			back: 'douken',
-		},
-	],
+	mainList: [],
 
-	addVocabs: newCard =>
+	// pulls cards from MongoDB
+	fetchAllCards: async getAllFlashcards => {
+		const response = await getAllFlashcards;
+		set({mainList: await response});
+	},
+
+	addVocab: newCard =>
 		set(state => ({
-			vocabList: [...state.vocabList, newCard],
+			mainList: [...state.mainList, newCard],
 		})),
 
 	removeVocabs: removeCard =>
 		set(state => ({
-			vocabList: state.vocabList.filter(card => card !== removeCard),
+			mainList: state.mainList.filter(card => card !== removeCard),
 		})),
+
+	clearMainList: () => set({mainList: []}),
 
 	// removeVocabs: cardToRemove =>
 	// 	set(state => ({
