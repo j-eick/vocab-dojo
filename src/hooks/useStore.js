@@ -14,9 +14,9 @@ export const vocabStore = create(set => ({
 			mainList: [...state.mainList, newCard],
 		})),
 
-	removeVocabs: removeCard =>
+	removeVocab: id =>
 		set(state => ({
-			mainList: state.mainList.filter(card => card !== removeCard),
+			mainList: state.mainList.filter(card => card !== id),
 		})),
 
 	clearMainList: () => set({mainList: []}),
