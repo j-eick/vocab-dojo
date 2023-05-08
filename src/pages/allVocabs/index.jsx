@@ -1,44 +1,33 @@
 import Head from 'next/head';
-import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 import DeleteFlashcards from '../../components/Button/DeleteFlashcardButton';
 import Layout from '../../components/Layout';
 import Textbox from '../../components/Texfield/Textbox';
 import {useFetch} from '../../hooks/useFetch';
-import {getAllFlashcards} from '../../services/vocabServices';
+import {vocabStore} from '../../hooks/useStore';
 
-console.clear();
+// export async function getStaticProps() {
+// 	const allFlashcards = await getAllFlashcards();
 
-export async function getStaticProps() {
-	const allFlashcards = await getAllFlashcards();
+// 	return {
+// 		props: {allFlashcards},
+// 	};
+// }
 
-	return {
-		props: {allFlashcards},
-	};
-}
+export default function VocabListPage() {
+	const mainList = vocabStore(state => state.mainList);
+	const clearMainList = vocabStore(state => state.clearMainList);
 
-/**
- * 1.	List of vocabs is passed to useState
- * 2.	stateVariable sends vocabs to card-element
- * 3. 	Deletebutton empties state-variable.
- * 4. 	DB gets updated with emptied list, when url !== 'allVocabs
- */
-export default function VocabListPage({allFlashcards}) {
-	const [cardstack, setCardstack] = useState(allFlashcards);
-	const [cardstackEmpty, setCardstackFull] = useState(false);
 	const fetchAPI = useFetch();
-	console.log('cardstack is empty: ' + cardstackEmpty);
-
-	useEffect(() => {
-		setCardstackFull(!setCardstackFull);
-	}, [cardstack]);
 
 	async function deleteHandler() {
+		// Deletes items in MongoDB
 		await fetchAPI('/api/flashcard/delete', {
 			method: 'DELETE',
 		});
-		setCardstack('');
+		// Deletes items in globalState
+		clearMainList();
 	}
 
 	return (
@@ -48,7 +37,7 @@ export default function VocabListPage({allFlashcards}) {
 				<meta key="description" name="description" content="About" />
 			</Head>
 			<StyledUl>
-				{cardstack?.map(word => (
+				{mainList.map(word => (
 					<StyledLi key={word.id}>
 						<StyledCard>
 							<Textbox variant="textfield_overview">
@@ -63,7 +52,8 @@ export default function VocabListPage({allFlashcards}) {
 					</StyledLi>
 				))}
 			</StyledUl>
-			{cardstackEmpty && <DeleteFlashcards onClick={deleteHandler} />}
+			{/* {cardstackEmpty && <DeleteFlashcards onClick={deleteHandler} />} */}
+			<DeleteFlashcards onClick={deleteHandler} />
 		</Layout>
 	);
 }
