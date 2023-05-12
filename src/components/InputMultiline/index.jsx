@@ -52,14 +52,14 @@ const StyledTextarea = styled.textarea`
 	${({variant}) =>
 		variant === 'input_createVocabs_text' &&
 		css`
-			margin-bottom: 20px;
+			margin-bottom: 50px;
 			padding: 8px;
 			height: 120px;
 			resize: none;
 
 			outline: none;
 			border: 1px solid white;
-			border-radius: 10px;
+			border-radius: 7px;
 			font-size: var(--fontsize_Textfield_text);
 			line-break: normal;
 
