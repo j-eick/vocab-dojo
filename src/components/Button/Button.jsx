@@ -2,7 +2,14 @@ import styled, {css} from 'styled-components';
 
 console.clear();
 
-export default function Button({type = 'button', variant, children, onClick, name, ...props}) {
+export default function Button({
+	type = 'button',
+	variant = 'default',
+	children,
+	onClick,
+	name,
+	...props
+}) {
 	return (
 		<>
 			<StyledButton onClick={onClick} type={type} variant={variant} name={name} {...props}>
@@ -79,5 +86,17 @@ const StyledButton = styled.button`
 			&:hover {
 				background: #e1e8f3;
 			}
+			&:focus {
+				/* border: black; */
+				outline: 1px solid white;
+			}
+		`}
+
+	${({variant}) =>
+		variant === 'add_cardTitle' &&
+		css`
+			/* position: absolute; */
+			width: fit-content;
+			transform: translateY(100px);
 		`}
 `;
