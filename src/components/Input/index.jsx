@@ -20,7 +20,7 @@ const StyledInput = styled.input`
 			width: 80%;
 			height: 2em;
 
-			margin-bottom: 4px;
+			margin-bottom: 7px;
 			padding: 8px;
 
 			outline: none;

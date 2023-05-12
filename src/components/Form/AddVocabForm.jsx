@@ -55,7 +55,7 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="frontSide_title"
 				variant="input_createVocabs_title"
-				placeholder="title"
+				placeholder="optional title"
 				onChange={event => {
 					setFrontTitle(event.target.value);
 				}}
@@ -79,7 +79,7 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="backSide_title"
 				variant="input_createVocabs_title"
-				placeholder="title"
+				placeholder="optional title"
 				onChange={event => {
 					setBackTitle(event.target.value);
 				}}
