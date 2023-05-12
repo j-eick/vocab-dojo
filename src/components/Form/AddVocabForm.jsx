@@ -55,7 +55,7 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="frontSide_title"
 				variant="input_createVocabs_title"
-				// placeholder="optional"
+				placeholder="title"
 				onChange={event => {
 					setFrontTitle(event.target.value);
 				}}
@@ -67,7 +67,7 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="frontSide_description"
 				variant="input_createVocabs_text"
-				// placeholder="front"
+				placeholder="front"
 				onChange={event => {
 					setFrontDescription(event.target.value);
 				}}
@@ -79,7 +79,7 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="backSide_title"
 				variant="input_createVocabs_title"
-				// placeholder="optional"
+				placeholder="title"
 				onChange={event => {
 					setBackTitle(event.target.value);
 				}}
@@ -91,7 +91,7 @@ export default function AddVocabForm({onSubmit}) {
 				type="text"
 				name="backSide_description"
 				variant="input_createVocabs_text"
-				// placeholder="back"
+				placeholder="back"
 				onChange={event => {
 					setBackDescription(event.target.value);
 				}}
