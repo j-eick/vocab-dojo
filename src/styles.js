@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 		--fontsize_Placeholder_MultilineInput: 3rem;
 
 		/* +++++  FLASHCARD FONTSIZES  +++++ */
+		--fontsize_Flashcard_title_placeholder: 2rem;
 		--fontsize_Flashcard_title: 2.25rem;
 		--fontsize_Flashcard_description: 1.75rem;
 	}
