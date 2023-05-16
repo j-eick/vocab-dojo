@@ -74,9 +74,13 @@ export default function FlashCard({frontTitle, frontDescription, backTitle, back
 	);
 }
 
-// #################################
-// ########   STYLING    ###########
-// #################################
+// #####################################
+// ##############   STYLING    #########
+// #####################################
+
+// +++++++++++++++++++++++++++++++
+// +++++++   CONTAINER    ++++++++
+// +++++++++++++++++++++++++++++++
 
 const CardContainer = styled.div`
 	margin-top: 100px;
@@ -96,6 +100,10 @@ const Card = styled.div`
 	transform-origin: center;
 `;
 
+// +++++++++++++++++++++++++++++++
+// +++++++   FRONT    ++++++++++++
+// +++++++++++++++++++++++++++++++
+
 const Front = styled.div`
 	position: absolute;
 	/* position: relative; */
@@ -112,9 +120,15 @@ const Front = styled.div`
 
 	background: rgb(237, 243, 251);
 	background: linear-gradient(207deg, #eff4fa 0%, #d6dfed 20%);
+	z-index: 50;
 
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 18px, rgba(0, 0, 0, 0.22) 0px 0px 5px;
 `;
+
+// +++++++++++++++++++++++++++++++
+// +++++++   BACK    +++++++++++++
+// +++++++++++++++++++++++++++++++
+
 const Back = styled.div`
 	position: absolute;
 	width: 100%;
@@ -131,16 +145,20 @@ const Back = styled.div`
 
 	background: rgb(237, 243, 251);
 	background: linear-gradient(137deg, #eff4fa 0%, #d6dfed 20%);
+	z-index: 50;
 `;
+
+// ++++++++++++++++++++++++++++++++++
+// +++++++   TITLE & TEXT    ++++++++
+// ++++++++++++++++++++++++++++++++++
 
 const StyledH1 = styled.h1`
 	height: 100%;
 	width: 100%;
 
-	display: grid;
-	place-items: center;
-
-	border: 1px solid gray;
+	display: flex;
+	justify-content: center;
+	align-items: end;
 
 	${({variant}) =>
 		variant === 'FRONT_title_and_description' &&
@@ -149,6 +167,8 @@ const StyledH1 = styled.h1`
 			height: 20%;
 			width: 90%;
 
+			/* border: 1px solid gray; */
+			box-shadow: #5d5d5d 0px 7px 5px -6px;
 			font-size: var(--fontsize_Flashcard_title);
 		`}
 	${({variant}) =>
@@ -176,6 +196,7 @@ const StyledH1 = styled.h1`
 			height: 50%;
 			width: 90%;
 
+			border: 1px solid gray;
 			font-size: var(--fontsize_Flashcard_title);
 		`}
 `;
@@ -192,7 +213,7 @@ const StyledP = styled.p`
 			margin-top: 5px;
 			width: 90%;
 			height: 65%;
-			border: 1px solid grey;
+			/* border: 1px solid grey; */
 
 			font-size: var(--fontsize_Flashcard_description);
 		`}
@@ -202,7 +223,7 @@ const StyledP = styled.p`
 			margin-top: 10px;
 			height: 90%;
 			width: 90%;
-			border: 1px solid gray;
+			/* border: 1px solid gray; */
 
 			font-size: var(--fontsize_Flashcard_description);
 		`}
@@ -213,8 +234,9 @@ const StyledP = styled.p`
 			margin-top: 5px;
 			width: 90%;
 			height: 65%;
-			border: 1px solid grey;
 
+			/* border: 1px solid grey; */
+			box-shadow: #5d5d5d 0px 7px 5px -6px;
 			font-size: var(--fontsize_Flashcard_description);
 		`}
 	${({variant}) =>
@@ -223,8 +245,8 @@ const StyledP = styled.p`
 			margin-top: 10px;
 			height: 90%;
 			width: 90%;
-			border: 1px solid gray;
 
+			/* border: 1px solid gray; */
 			font-size: var(--fontsize_Flashcard_description);
 		`}
 `;
