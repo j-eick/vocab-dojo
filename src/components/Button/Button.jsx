@@ -46,24 +46,29 @@ const StyledButton = styled.button`
 		`}
 
 	${({variant}) =>
-		variant === 'startSession' &&
-		css`
-			height: 30px;
-			width: 50px;
-			margin-top: 50px;
-			border-radius: 10%;
-			border: none;
-		`}
-
-	${({variant}) =>
 		variant === 'nextFlashCard' &&
 		css`
-			height: 30px;
-			margin-top: 50px;
-			padding: 10px;
+			margin-top: 220px;
+			/* padding: 7px 15px; */
+			height: 40px;
+			width: 90px;
 
-			border-radius: 10%;
+			display: grid;
+			place-items: center;
+
 			border: none;
+			border-radius: 50px;
+			cursor: pointer;
+
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
+			background-color: #dde7f4;
+			&:hover {
+				background: #e1e8f3;
+			}
+			&:focus {
+				/* border: black; */
+				outline: 1px solid white;
+			}
 		`}
 
 	${({variant}) =>
@@ -98,5 +103,31 @@ const StyledButton = styled.button`
 			/* position: absolute; */
 			width: fit-content;
 			transform: translateY(100px);
+		`}
+	${({variant}) =>
+		variant === 'startSession' &&
+		css`
+			padding: 10px 10px;
+			height: 40px;
+			width: fit-content;
+
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			align-items: center;
+			gap: 5px;
+
+			border: none;
+			border-radius: 15px;
+			cursor: pointer;
+
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
+			background-color: #dde7f4;
+			&:hover {
+				background: #e1e8f3;
+			}
+			&:focus {
+				/* border: black; */
+				outline: 1px solid white;
+			}
 		`}
 `;
