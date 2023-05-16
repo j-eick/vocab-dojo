@@ -8,7 +8,7 @@ export default function StartSessionLink({variant}) {
 	return (
 		<LinkTemplate href="/session" variant={variant}>
 			<StyledDiv>
-				<StyledP>Start Session</StyledP>
+				<StyledP>Enter Dojo</StyledP>
 				<Icon path={mdiCards} size={2} />
 			</StyledDiv>
 		</LinkTemplate>

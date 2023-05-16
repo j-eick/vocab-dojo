@@ -1,4 +1,4 @@
-import StyledModal from './Modal';
+import StyledModal from './index';
 
 export default function ProfileMenuModal() {
 	return (
