@@ -6,8 +6,6 @@ import Textfield from '../components/Texfield/Textbox';
 import TextfieldArea from '../components/TextfieldArea';
 import Title from '../components/Title/index';
 
-console.clear();
-
 export default function HomePage() {
 	return (
 		<Layout>

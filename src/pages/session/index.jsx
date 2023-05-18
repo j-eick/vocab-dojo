@@ -15,6 +15,8 @@ export async function getStaticProps() {
 	const sumAllFlashcards = await allFlashcards.length;
 	const startingCard = await getRandomNum(sumAllFlashcards);
 	const newArray = await shuffleCards(allFlashcards);
+
+	console.log('newArray: ' + newArray);
 	console.log(newArray);
 
 	return {
@@ -23,12 +25,12 @@ export async function getStaticProps() {
 }
 
 export default function StudySession({startingCard, newArray}) {
-	const [currentCard, setCurrentCard] = useState(newArray[startingCard]);
+	const [startstack, setStartstack] = useState(newArray[startingCard]);
 	const [showPreSessionModal, setShowPreSessionModal] = useState(true);
 	const [showNextCardButton, setShowNextCardButton] = useState(false);
 
-	console.log('currentCard');
-	console.log(currentCard);
+	console.log('startstack');
+	console.log(startstack);
 
 	function getRandomCard() {
 		const sumAllFlashcards = newArray.length;
@@ -36,22 +38,22 @@ export default function StudySession({startingCard, newArray}) {
 		return newArray[randomNum];
 	}
 
-	function clickHandler() {
+	function startSessionHandler() {
 		setShowPreSessionModal(!showPreSessionModal);
 		setShowNextCardButton(!showNextCardButton);
 	}
 
 	return (
 		<Layout>
-			{showPreSessionModal && <PreSessionModal onClick={clickHandler} />}
+			{showPreSessionModal && <PreSessionModal onClick={startSessionHandler} />}
 			<FlashCard
-				frontTitle={currentCard.frontTitle}
-				frontDescription={currentCard.frontDescription}
-				backTitle={currentCard.backTitle}
-				backDescription={currentCard.backDescription}
+				frontTitle={startstack.frontTitle}
+				frontDescription={startstack.frontDescription}
+				backTitle={startstack.backTitle}
+				backDescription={startstack.backDescription}
 			/>
 			{showNextCardButton && (
-				<NextFlashCardButton onClick={() => setCurrentCard(getRandomCard())} />
+				<NextFlashCardButton onClick={() => setStartstack(getRandomCard())} />
 			)}
 		</Layout>
 	);

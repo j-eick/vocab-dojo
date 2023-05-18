@@ -1,23 +1,23 @@
 import Head from 'next/head';
+import {useState} from 'react';
 import styled from 'styled-components';
 
 import DeleteFlashcards from '../../components/Button/DeleteFlashcardButton';
 import Layout from '../../components/Layout';
 import Textbox from '../../components/Texfield/Textbox';
 import {useFetch} from '../../hooks/useFetch';
-import {vocabStore} from '../../hooks/useStore';
+import {getAllFlashcards} from '../../services/vocabServices';
 
-// export async function getStaticProps() {
-// 	const allFlashcards = await getAllFlashcards();
+export async function getStaticProps() {
+	const allFlashcards = await getAllFlashcards();
 
-// 	return {
-// 		props: {allFlashcards},
-// 	};
-// }
+	return {
+		props: {allFlashcards},
+	};
+}
 
-export default function VocabListPage() {
-	const mainList = vocabStore(state => state.mainList);
-	const clearMainList = vocabStore(state => state.clearMainList);
+export default function VocabListPage({allFlashcards}) {
+	const [flashcards, setFlashcards] = useState(allFlashcards);
 
 	const fetchAPI = useFetch();
 
@@ -26,8 +26,8 @@ export default function VocabListPage() {
 		await fetchAPI('/api/flashcard/delete', {
 			method: 'DELETE',
 		});
-		// Deletes items in globalState
-		clearMainList();
+		// Resets flashcard state
+		setFlashcards([]);
 	}
 
 	return (
@@ -37,7 +37,7 @@ export default function VocabListPage() {
 				<meta key="description" name="description" content="About" />
 			</Head>
 			<StyledUl>
-				{mainList.map(word => (
+				{flashcards.map(word => (
 					<StyledLi key={word.id}>
 						<StyledCard>
 							<Textbox variant="textfield_overview">
