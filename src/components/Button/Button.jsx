@@ -46,32 +46,6 @@ const StyledButton = styled.button`
 		`}
 
 	${({variant}) =>
-		variant === 'nextFlashCard' &&
-		css`
-			margin-top: 220px;
-			/* padding: 7px 15px; */
-			height: 40px;
-			width: 90px;
-
-			display: grid;
-			place-items: center;
-
-			border: none;
-			border-radius: 50px;
-			cursor: pointer;
-
-			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
-			background-color: #dde7f4;
-			&:hover {
-				background: #e1e8f3;
-			}
-			&:focus {
-				/* border: black; */
-				outline: 1px solid white;
-			}
-		`}
-
-	${({variant}) =>
 		variant === 'createFlashcard' &&
 		css`
 			padding: 10px 10px;
@@ -104,6 +78,7 @@ const StyledButton = styled.button`
 			width: fit-content;
 			transform: translateY(100px);
 		`}
+
 	${({variant}) =>
 		variant === 'startSession' &&
 		css`
@@ -113,6 +88,59 @@ const StyledButton = styled.button`
 
 			display: grid;
 			grid-template-columns: 3fr 1fr;
+			align-items: center;
+			gap: 5px;
+
+			border: none;
+			border-radius: 15px;
+			cursor: pointer;
+
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
+			background-color: #dde7f4;
+			&:hover {
+				background: #e1e8f3;
+			}
+			&:focus {
+				/* border: black; */
+				outline: 1px solid white;
+			}
+		`}
+
+		${({variant}) =>
+		variant === 'nextFlashCard' &&
+		css`
+			margin-top: 220px;
+			/* padding: 7px 15px; */
+			height: 40px;
+			width: 90px;
+
+			display: grid;
+			place-items: center;
+
+			border: none;
+			border-radius: 50px;
+			cursor: pointer;
+
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
+			background-color: #dde7f4;
+			&:hover {
+				background: #e1e8f3;
+			}
+			&:focus {
+				/* border: black; */
+				outline: 1px solid white;
+			}
+		`}
+
+	${({variant}) =>
+		variant === 'repeatSession' &&
+		css`
+			margin-top: 220px;
+			padding: 10px 15px;
+			height: 40px;
+			width: fit-content;
+
+			display: flex;
 			align-items: center;
 			gap: 5px;
 
