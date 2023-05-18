@@ -46,4 +46,26 @@ const StyledModal = styled.div`
 			/* opacity: 0; */
 			z-index: 60;
 		`}
+
+	${({variant}) =>
+		variant === `postSessionModal` &&
+		css`
+			position: absolute;
+			top: 120px;
+
+			display: grid;
+			place-items: center;
+
+			height: 160px;
+			width: 280px;
+
+			border-radius: 15px;
+			background: rgba(17, 41, 87, 0.15);
+			backdrop-filter: blur(10px);
+
+			font-size: var(--fontsize_Textfield_title);
+
+			/* opacity: 0; */
+			z-index: 70;
+		`}
 `;
