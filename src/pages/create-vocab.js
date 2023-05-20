@@ -2,11 +2,12 @@ import AddVocabForm from '../components/Form/AddVocabForm';
 import Layout from '../components/Layout';
 import {useFetch} from '../hooks/useFetch';
 import {vocabStore} from '../hooks/useStore';
+import {useToggleStore} from '../hooks/useToggleStore';
 
 export default function CreateVocab() {
 	const fetchAPI = useFetch();
-	// const mainList = vocabStore(state => state.mainList);
 	const addVocab = vocabStore(state => state.addVocab);
+	const toggleWithCards = useToggleStore(state => state.toggleWithCards);
 
 	async function handleSubmit(data) {
 		await fetchAPI('/api/flashcard/create', {
@@ -14,6 +15,7 @@ export default function CreateVocab() {
 			body: JSON.stringify(data),
 		});
 		addVocab(data);
+		toggleWithCards();
 	}
 
 	return (
