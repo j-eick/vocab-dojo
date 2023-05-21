@@ -1,13 +1,12 @@
 import create from 'zustand';
 
-export const vocabStore = create(set => ({
+import {getAllFlashcards} from '../services/vocabServices';
+
+const vocabStore = set => ({
 	mainList: [],
 
 	// pulls cards from MongoDB
-	fetchAllCards: async getAllFlashcards => {
-		const response = await getAllFlashcards;
-		set({mainList: await response});
-	},
+	fetchAllCards: () => set({mainList: getAllFlashcards()}),
 
 	addVocab: newCard =>
 		set(state => ({
@@ -29,7 +28,9 @@ export const vocabStore = create(set => ({
 	// 			card !== cardToRemove)],
 	// 		)),
 	// 	})),
-}));
+});
+
+export const useVocabStore = create(vocabStore);
 
 // const useStore = create(set => ({
 // 	counter: 0,

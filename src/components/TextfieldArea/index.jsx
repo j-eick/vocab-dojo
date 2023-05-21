@@ -6,19 +6,23 @@ export default function TextfieldArea({children, variant}) {
 
 const StyledTextfieldArea = styled.div`
 	${({variant}) =>
-		variant === 'textFieldArea' &&
+		variant === 'textarea_hardToRemember' &&
 		css`
-			margin-top: 20px;
+			margin-top: 100px;
+			margin-bottom: 50px;
 			width: 80%;
 
 			display: flex;
 			flex-direction: column;
+		`}
 
-			&: nth-child(1) {
-				margin-top: 120px;
-			}
-			&: nth-child(2) {
-				margin-bottom: 50px;
-			}
+	${({variant}) =>
+		variant === 'textarea_lastAdded' &&
+		css`
+			margin-bottom: 50px;
+			width: 80%;
+
+			display: flex;
+			flex-direction: column;
 		`}
 `;

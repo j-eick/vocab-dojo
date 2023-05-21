@@ -12,7 +12,7 @@ const StyledTextbox = styled.div`
 			border: 1.5px solid black;
 		`}
 	${({variant}) =>
-		variant === 'textfield_mainpage' &&
+		variant === 'textbox_mainpage' &&
 		css`
 			width: 100%;
 			height: 100px;
@@ -27,7 +27,7 @@ const StyledTextbox = styled.div`
 			background: linear-gradient(207deg, #eff4fa 0%, #d6dfed 20%);
 		`}
 
-	${({variant}) =>
+		${({variant}) =>
 		variant === 'textfield_overview' &&
 		css`
 			padding: 10px 10px;
