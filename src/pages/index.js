@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import {useEffect} from 'react';
 
 import Layout from '../components/Layout';
 import StartSession_noCards from '../components/Links/StartSessionLink_noCards';
@@ -8,10 +9,12 @@ import Textfield from '../components/Texfield/Textbox';
 import TextfieldArea from '../components/TextfieldArea';
 import Title from '../components/Title/index';
 import {useToggleStore} from '../hooks/useToggleStore';
+import {useVocabStore} from '../hooks/useVocabStore';
 
 console.clear();
 
 export default function HomePage() {
+	const fetchAllCards = useVocabStore(state => state.fetchAllCards);
 	const cardsInList = useToggleStore(state => state.cardsInList);
 	const showModal = useToggleStore(state => state.showModal);
 	const hide_Modal = useToggleStore(state => state.hide_Modal);
@@ -24,6 +27,15 @@ export default function HomePage() {
 			hide_Modal();
 		}, 3000);
 	};
+
+	useEffect(() => {
+		console.log('Test');
+		const fetchCards = async () => {
+			await fetchAllCards();
+		};
+		fetchCards().catch(console.error);
+		// console.log(mainList);
+	}, []);
 
 	return (
 		<Layout>
