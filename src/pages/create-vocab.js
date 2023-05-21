@@ -1,8 +1,8 @@
 import AddVocabForm from '../components/Form/AddVocabForm';
 import Layout from '../components/Layout';
 import {useFetch} from '../hooks/useFetch';
-import {vocabStore} from '../hooks/useStore';
 import {useToggleStore} from '../hooks/useToggleStore';
+import {vocabStore} from '../hooks/useVocabStore';
 
 export default function CreateVocab() {
 	const fetchAPI = useFetch();
