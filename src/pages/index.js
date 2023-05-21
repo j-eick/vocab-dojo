@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import StartSession_noCards from '../components/Links/StartSessionLink_noCards';
 import StartSession_withCards from '../components/Links/StartSessionLink_withCards';
+import InfoModalPopupSmall from '../components/Modals/InfoModalPopup/InfoModalPopupSmall';
 import Textfield from '../components/Texfield/Textbox';
 import TextfieldArea from '../components/TextfieldArea';
 import Title from '../components/Title/index';
@@ -12,6 +13,17 @@ console.clear();
 
 export default function HomePage() {
 	const cardsInList = useToggleStore(state => state.cardsInList);
+	const showModal = useToggleStore(state => state.showModal);
+	const hide_Modal = useToggleStore(state => state.hide_Modal);
+	const show_Modal = useToggleStore(state => state.show_Modal);
+
+	const popupModalHandler = () => {
+		console.log('test');
+		show_Modal();
+		setTimeout(() => {
+			hide_Modal();
+		}, 3000);
+	};
 
 	return (
 		<Layout>
@@ -20,15 +32,22 @@ export default function HomePage() {
 				<meta key="description" name="description" content="This is my project" />
 			</Head>
 
+			{/* #############   INFO MODALs   ################ */}
+			{showModal && (
+				<InfoModalPopupSmall variant="smallInfoModal">
+					Create flashcard first
+				</InfoModalPopupSmall>
+			)}
+
 			{/* #############   TEXTFIELD AREAS   ################ */}
 
-			<TextfieldArea variant="textFieldArea">
+			<TextfieldArea variant="textarea_hardToRemember">
 				<Title variant="Textbox_Title">Hard to remember</Title>
-				<Textfield variant="textfield_mainpage">Example 2</Textfield>
+				<Textfield variant="textbox_mainpage">Example 2</Textfield>
 			</TextfieldArea>
-			<TextfieldArea variant="textFieldArea">
+			<TextfieldArea variant="textarea_lastAdded">
 				<Title variant="Textbox_Title">Last Added</Title>
-				<Textfield variant="textfield_mainpage">Example</Textfield>
+				<Textfield variant="textbox_mainpage">Example</Textfield>
 			</TextfieldArea>
 
 			{/* #############   START SESSION   ################ */}
@@ -36,9 +55,12 @@ export default function HomePage() {
 
 			{/* PICK DIFFEREN STARTSESSION BUTTON BASED ON CONDITION, whether CardList is full or empty */}
 			{cardsInList ? (
-				<StartSession_withCards variant="startSession_withCards" />
+				<StartSession_withCards
+					variant="startSession_withCards"
+					onClick={popupModalHandler}
+				/>
 			) : (
-				<StartSession_noCards variant="startSession_noCards" />
+				<StartSession_noCards variant="startSession_noCards" onClick={popupModalHandler} />
 			)}
 		</Layout>
 	);
