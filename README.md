@@ -1,7 +1,7 @@
 ### Vocab-Dojo
 
 A vocabulary app that makes the learning more fun by gamifying the process. This is a work in
-progress.
+progress..
 
 #### Current status:
 
