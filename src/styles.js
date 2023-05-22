@@ -26,6 +26,11 @@ export const GlobalStyle = createGlobalStyle`
 		font: inherit;
 		font-size: var(--fontsize_defaultText);
 		vertical-align: baseline;
+		color: black;
+	}
+
+	a {
+		text-decoration: none;
 	}
 
 	ol, ul {
