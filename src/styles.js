@@ -15,6 +15,9 @@ export const GlobalStyle = createGlobalStyle`
 		--fontsize_Flashcard_title_placeholder: 2rem;
 		--fontsize_Flashcard_title: 2.25rem;
 		--fontsize_Flashcard_description: 1.75rem;
+
+		/* +++++  MODAL POPUP FONTSIZES  +++++ */
+		--fontsize_Modal_Popups: 1.75rem;
 	}
 
 	*,

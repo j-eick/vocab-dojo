@@ -1,11 +1,12 @@
 import Head from 'next/head';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 import DeleteFlashcards from '../../components/Button/DeleteFlashcardButton';
 import Layout from '../../components/Layout';
 import Textbox from '../../components/Texfield/Textbox';
 import {useFetch} from '../../hooks/useFetch';
+import {useToggleStore} from '../../hooks/useToggleStore';
 import {getAllFlashcards} from '../../services/vocabServices';
 
 export async function getStaticProps() {
@@ -18,6 +19,12 @@ export async function getStaticProps() {
 
 export default function VocabListPage({allFlashcards}) {
 	const [flashcards, setFlashcards] = useState(allFlashcards);
+	const cardsInList = useToggleStore(state => state.cardsInList);
+	const toggleNoCards = useToggleStore(state => state.toggleNoCards);
+
+	useEffect(() => {
+		console.log(cardsInList);
+	}, [cardsInList]);
 
 	const fetchAPI = useFetch();
 
@@ -28,6 +35,8 @@ export default function VocabListPage({allFlashcards}) {
 		});
 		// Resets flashcard state
 		setFlashcards([]);
+		// set cardsInList = false
+		toggleNoCards();
 	}
 
 	return (

@@ -1,15 +1,24 @@
-import {mdiCards} from '@mdi/js';
+import {mdiCardsOutline} from '@mdi/js';
 import Icon from '@mdi/react';
+import {useEffect} from 'react';
 import styled from 'styled-components';
+
+import {useToggleStore} from '../../hooks/useToggleStore';
 
 import LinkTemplate from '.';
 
 export default function StartSessionLink({variant}) {
+	const cardsInList = useToggleStore(state => state.cardsInList);
+
+	useEffect(() => {
+		console.log(cardsInList);
+	}, [cardsInList]);
+
 	return (
-		<LinkTemplate href="/session" variant={variant}>
+		<LinkTemplate href="/" variant={variant}>
 			<StyledDiv>
-				<StyledP>Enter Dojo</StyledP>
-				<Icon path={mdiCards} size={2} />
+				<StyledP>No Cards</StyledP>
+				<Icon path={mdiCardsOutline} size={2} />
 			</StyledDiv>
 		</LinkTemplate>
 	);
