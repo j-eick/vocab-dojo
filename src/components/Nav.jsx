@@ -62,9 +62,9 @@ const StyledNav = styled.nav`
 	@media (min-width: 376px) {
 		border-bottom-left-radius: 35px;
 		border-bottom-right-radius: 35px;
-		/* border-left: 0.5px solid gray;
-		border-right: 0.5px solid gray;
-		border-bottom: 0.5px solid gray; */
+		/* border-left: 1px solid whitesmoke;
+		border-right: 1px solid whitesmoke;
+		border-bottom: 1px solid whitesmoke; */
 
 		@media (min-width: 500px), (min-height: 750px) {
 			box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;

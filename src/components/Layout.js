@@ -34,9 +34,9 @@ const StyledMain = styled.main`
 	@media (min-width: 376px) {
 		border-top-right-radius: 35px;
 		border-top-left-radius: 35px;
-		/* border-top: 0.5px solid gray;
-		border-right: 0.5px solid gray;
-		border-left: 0.5px solid gray; */
+		border-top: 1px solid whitesmoke;
+		border-right: 1px solid whitesmoke;
+		border-left: 1px solid whitesmoke;
 
 		@media (min-width: 500px), (min-height: 750px) {
 			box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
