@@ -1,4 +1,5 @@
-import MySVG from '../../../public/MySVG';
+import {mdiDelete} from '@mdi/js';
+import Icon from '@mdi/react';
 
 import Button from './Button';
 
@@ -14,8 +15,9 @@ export default function DeleteFlashcardButton({onClick}) {
 	// }
 
 	return (
-		<Button type="button" onClick={onClick} variant="default">
-			<MySVG variant="undo2" size="24px" />
+		<Button type="button" onClick={onClick} variant="deleteFlashcardStack">
+			<p>Remove all</p>
+			<Icon path={mdiDelete} size={1.5} />
 		</Button>
 	);
 }
