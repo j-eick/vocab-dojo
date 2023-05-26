@@ -58,6 +58,18 @@ const StyledNav = styled.nav`
 
 	background: rgb(221, 231, 244);
 	background: linear-gradient(55deg, #acc1dd 10%), #ceddf1 0%;
+
+	@media (min-width: 376px) {
+		border-bottom-left-radius: 35px;
+		border-bottom-right-radius: 35px;
+		/* border-left: 0.5px solid gray;
+		border-right: 0.5px solid gray;
+		border-bottom: 0.5px solid gray; */
+
+		@media (min-width: 500px), (min-height: 750px) {
+			box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+		}
+	}
 `;
 const StyledUl = styled.ul`
 	height: 100%;
