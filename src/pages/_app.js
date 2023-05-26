@@ -1,8 +1,14 @@
 // import {useRouter} from 'next/router';
 
+import {Nunito} from '@next/font/google';
+
 import {GlobalStyle} from '../styles';
 
 console.clear();
+
+const nunito = Nunito({
+	subsets: ['latin'],
+});
 
 export default function App({Component, pageProps}) {
 	// const {asPath} = useRouter();
@@ -15,9 +21,9 @@ export default function App({Component, pageProps}) {
 	// 	}
 	// };
 	return (
-		<>
+		<div className={nunito.className}>
 			<GlobalStyle />
 			<Component {...pageProps} />
-		</>
+		</div>
 	);
 }

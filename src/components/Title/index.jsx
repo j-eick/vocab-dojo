@@ -1,7 +1,15 @@
 import styled, {css} from 'styled-components';
 
+import {nunito} from '../../utils/font';
+
+console.clear();
+
 export default function Title({children, variant = 'default'}) {
-	return <StyledTextfieldTitle variant={variant}>{children}</StyledTextfieldTitle>;
+	return (
+		<StyledTextfieldTitle variant={variant} className={nunito.className}>
+			{children}
+		</StyledTextfieldTitle>
+	);
 }
 
 const StyledTextfieldTitle = styled.h1`
@@ -32,11 +40,11 @@ const StyledTextfieldTitle = styled.h1`
 	${({variant}) =>
 		variant === 'Textbox_Title' &&
 		css`
-			margin-bottom: 7px;
+			margin-bottom: 3px;
 			padding: 0 7px 0 7px;
 
 			width: fit-content;
-
+			font-weight: 300;
 			font-size: var(--fontsize_Textfield_title);
 		`}
 `;
