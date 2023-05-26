@@ -72,6 +72,32 @@ const StyledButton = styled.button`
 		`}
 
 	${({variant}) =>
+		variant === 'deleteFlashcardStack' &&
+		css`
+			margin-top: 10px;
+			padding: 10px 10px;
+			width: fit-content;
+
+			display: grid;
+			grid-template-columns: 4fr 1fr;
+			align-items: center;
+
+			border: none;
+			border-radius: 15px;
+			cursor: pointer;
+
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
+			background-color: #dde7f4;
+			&:hover {
+				background: #e1e8f3;
+			}
+			&:focus {
+				/* border: black; */
+				outline: 1px solid white;
+			}
+		`}
+
+	${({variant}) =>
 		variant === 'add_cardTitle' &&
 		css`
 			/* position: absolute; */
