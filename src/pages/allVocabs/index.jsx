@@ -63,10 +63,10 @@ export default function VocabListPage({allFlashcards}) {
 // #################################
 
 const StyledUl = styled.ul`
-	margin-top: 120px;
+	margin-top: 100px;
 	padding: 30px 20px;
 	width: 80%;
-	max-height: 450px;
+	max-height: 430px;
 
 	display: flex;
 	flex-direction: column;
