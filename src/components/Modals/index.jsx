@@ -1,8 +1,12 @@
-import styled, {css} from 'styled-components';
+import styled, {css, keyframes} from 'styled-components';
 
-export default function Modal({onClick, variant, children}) {
+export default function Modal({onClick, variant, children, safetyQuestionModalActive}) {
 	return (
-		<StyledModal onClick={onClick} variant={variant}>
+		<StyledModal
+			onClick={onClick}
+			variant={variant}
+			safetyQuestionModalActive={safetyQuestionModalActive}
+		>
 			{children}
 		</StyledModal>
 	);
@@ -68,4 +72,52 @@ const StyledModal = styled.div`
 			/* opacity: 0; */
 			z-index: 70;
 		`}
+
+	${({variant}) =>
+		variant === `saftey_question_modal` &&
+		css`
+			position: absolute;
+			top: 20px;
+
+			display: grid;
+			place-items: center;
+
+			padding: 40px 40px;
+			width: fit-content;
+
+			border-radius: 10px;
+			background: rgba(227, 111, 53, 0.331);
+			backdrop-filter: blur(7px);
+
+			font-size: var(--fontsize_Textfield_title);
+
+			/* opacity: 0; */
+			z-index: 70;
+
+			/* transform: translateY(50px); */
+
+			& p {
+				font-size: var(--fontsize_Textfield_title);
+			}
+
+			${({safetyQuestionModalActive}) =>
+				safetyQuestionModalActive &&
+				css`
+					animation: ${fadeIn} 1s cubic-bezier(0.28, 1.04, 0.79, 1.19);
+				`}
+		`}
 `;
+
+const fadeIn = keyframes`
+	0% {
+    transform: translateY(-70px);
+	opacity: 0
+  }
+  80% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+	opacity: 1
+  }
+	`;
