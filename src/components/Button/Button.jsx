@@ -2,17 +2,10 @@ import styled, {css} from 'styled-components';
 
 console.clear();
 
-export default function Button({
-	type = 'button',
-	variant = 'default',
-	children,
-	onClick,
-	name,
-	...props
-}) {
+export default function Button({type = 'button', variant = 'default', children, onClick, name}) {
 	return (
 		<>
-			<StyledButton onClick={onClick} type={type} variant={variant} name={name} {...props}>
+			<StyledButton onClick={onClick} type={type} variant={variant} name={name}>
 				{children}
 			</StyledButton>
 		</>
