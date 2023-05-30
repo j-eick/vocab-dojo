@@ -2,8 +2,11 @@ import Head from 'next/head';
 import {useState} from 'react';
 import styled from 'styled-components';
 
-import DeleteFlashcards from '../../components/Button/DeleteFlashcardButton';
+import Button from '../../components/Button/Button';
+import DeleteAllFlashcardsButton from '../../components/Button/DeleteFlashcardButton';
+import CloseIcon from '../../components/Icons/CloseIcon';
 import Layout from '../../components/Layout';
+import SafteyQuestionModal from '../../components/Modals/SafetyQuestion';
 import Textbox from '../../components/Texfield/Textbox';
 import {useFetch} from '../../hooks/useFetch';
 import {getAllFlashcards} from '../../services/vocabServices';
@@ -18,6 +21,7 @@ export async function getStaticProps() {
 
 export default function VocabListPage({allFlashcards}) {
 	const [flashcards, setFlashcards] = useState(allFlashcards);
+	const [showSafetyQuestion_Modal, setShowSafetyQuestion_Modal] = useState(false);
 
 	const fetchAPI = useFetch();
 
@@ -28,6 +32,15 @@ export default function VocabListPage({allFlashcards}) {
 		});
 		// Resets flashcard state
 		setFlashcards([]);
+		// makes safetyQuestionModal disappear
+		setShowSafetyQuestion_Modal(false);
+	}
+
+	function deletePromptHandler() {
+		// safetyQuestionModal shows
+		setTimeout(() => {
+			setShowSafetyQuestion_Modal(true);
+		}, 500);
 	}
 
 	return (
@@ -36,6 +49,21 @@ export default function VocabListPage({allFlashcards}) {
 				<title key="title">VocabList</title>
 				<meta key="description" name="description" content="About" />
 			</Head>
+			{showSafetyQuestion_Modal && (
+				<SafteyQuestionModal
+					variant="saftey_question_modal"
+					showSafetyQuestion_Modal={showSafetyQuestion_Modal}
+				>
+					<CloseIcon
+						onClick={() => setShowSafetyQuestion_Modal(!showSafetyQuestion_Modal)}
+						size={1.5}
+					/>
+					<p>Are you sure?</p>
+					<Button variant="deleteButton" onClick={deleteHandler}>
+						Delete
+					</Button>
+				</SafteyQuestionModal>
+			)}
 			<StyledUl>
 				{flashcards.map(word => (
 					<StyledLi key={word.id}>
@@ -53,7 +81,7 @@ export default function VocabListPage({allFlashcards}) {
 				))}
 			</StyledUl>
 			{/* {cardstackEmpty && <DeleteFlashcards onClick={deleteHandler} />} */}
-			<DeleteFlashcards onClick={deleteHandler} />
+			<DeleteAllFlashcardsButton onClick={deletePromptHandler} />
 		</Layout>
 	);
 }
@@ -66,7 +94,7 @@ const StyledUl = styled.ul`
 	margin-top: 100px;
 	padding: 30px 20px;
 	width: 80%;
-	max-height: 430px;
+	height: 430px;
 
 	display: flex;
 	flex-direction: column;
