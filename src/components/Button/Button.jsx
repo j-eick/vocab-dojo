@@ -17,6 +17,7 @@ const StyledButton = styled.button`
 		variant === 'default' &&
 		css`
 			width: fit-content;
+			padding: 10px;
 			border: none;
 			border-radius: 20px;
 			display: grid;
@@ -87,6 +88,31 @@ const StyledButton = styled.button`
 			&:focus {
 				/* border: black; */
 				outline: 1px solid white;
+			}
+		`}
+
+	${({variant}) =>
+		variant === 'deleteButton' &&
+		css`
+			margin-top: 20px;
+			padding: 10px 20px;
+			width: fit-content;
+
+			display: grid;
+			align-items: center;
+
+			border: none;
+			border-radius: 15px;
+			cursor: pointer;
+
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
+			background-color: #ff1d1d76;
+			&:hover {
+				/* background: #e1e8f3; */
+				outline: 1px solid white;
+			}
+			&:focus {
+				/* border: black; */
 			}
 		`}
 

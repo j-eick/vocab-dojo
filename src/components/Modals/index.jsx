@@ -1,11 +1,11 @@
 import styled, {css, keyframes} from 'styled-components';
 
-export default function Modal({onClick, variant, children, safetyQuestionModalActive}) {
+export default function Modal({onClick, variant, children, showSafetyQuestion_Modal}) {
 	return (
 		<StyledModal
 			onClick={onClick}
 			variant={variant}
-			safetyQuestionModalActive={safetyQuestionModalActive}
+			showSafetyQuestion_Modal={showSafetyQuestion_Modal}
 		>
 			{children}
 		</StyledModal>
@@ -82,7 +82,7 @@ const StyledModal = styled.div`
 			display: grid;
 			place-items: center;
 
-			padding: 40px 40px;
+			padding: 50px 40px 30px 40px;
 			width: fit-content;
 
 			border-radius: 10px;
@@ -100,10 +100,13 @@ const StyledModal = styled.div`
 				font-size: var(--fontsize_Textfield_title);
 			}
 
-			${({safetyQuestionModalActive}) =>
-				safetyQuestionModalActive &&
+			${({showSafetyQuestion_Modal}) =>
+				showSafetyQuestion_Modal &&
 				css`
-					animation: ${fadeIn} 1s cubic-bezier(0.28, 1.04, 0.79, 1.19);
+					animation: ${fadeIn} 0.5s cubic-bezier(0.29, 1.12, 0.75, 1.18);
+					/* animation: ${({safetyQuestionModalActive}) =>
+						safetyQuestionModalActive ? fadeIn : fadeOut}
+						1s cubic-bezier(0.28, 1.11, 0.66, 1.11) forward; */
 				`}
 		`}
 `;
@@ -111,10 +114,23 @@ const StyledModal = styled.div`
 const fadeIn = keyframes`
 	0% {
     transform: translateY(-70px);
+	visibility: hidden;
+}
+80% {
+	transform: translateY(20px);
+}
+100% {
+	transform: translateY(0);
+	visibility: visible;
+  }
+	`;
+const fadeOut = keyframes`
+	0% {
+    transform: translateY(-50px);
 	opacity: 0
   }
   80% {
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   100% {
     transform: translateY(0);
