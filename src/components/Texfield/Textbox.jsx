@@ -1,5 +1,9 @@
 import Textbox from './index';
 
-export default function TextBox({children, variant}) {
-	return <Textbox variant={variant}>{children}</Textbox>;
+export default function TextBox({children, variant, flashcards}) {
+	return (
+		<Textbox variant={variant} flashcards={flashcards}>
+			{children}
+		</Textbox>
+	);
 }
