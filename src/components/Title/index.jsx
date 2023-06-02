@@ -47,4 +47,15 @@ const StyledTextfieldTitle = styled.h1`
 			font-weight: 300;
 			font-size: var(--fontsize_Textfield_title);
 		`}
+
+	${({variant}) =>
+		variant === 'allVocabs_Title' &&
+		css`
+			margin-top: 70px;
+			margin-bottom: 10px;
+
+			width: fit-content;
+			font-weight: 300;
+			font-size: var(--fontsize_Textfield_title);
+		`}
 `;
