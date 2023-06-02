@@ -1,7 +1,11 @@
-import styled, {css} from 'styled-components';
+import styled, {css, keyframes} from 'styled-components';
 
-export default function TextBox({children, variant = 'default'}) {
-	return <StyledTextbox variant={variant}>{children}</StyledTextbox>;
+export default function TextBox({children, variant = 'default', flashcards}) {
+	return (
+		<StyledTextbox variant={variant} flashcards={flashcards}>
+			{children}
+		</StyledTextbox>
+	);
 }
 
 const StyledTextbox = styled.div`
@@ -42,4 +46,42 @@ const StyledTextbox = styled.div`
 
 			border-radius: 5px;
 		`}
+
+	${({variant}) =>
+		variant === 'no_flashcards_text' &&
+		css`
+			width: 80%;
+			height: 120px;
+			padding: 20px;
+
+			/* display: flex;
+			flex-direction: row; */
+
+			font-size: var(--fontsize_Textfield_text);
+
+			box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+			border-radius: 10px;
+			background: rgb(237, 243, 251);
+			background: linear-gradient(207deg, #eff4fa 0%, #d6dfed 20%);
+
+			& p br {
+				display: block;
+			}
+
+			${({flashcards}) =>
+				flashcards.length === 0 &&
+				css`
+					animation: ${fadeIn} 1.25s;
+				`}
+		`}
+`;
+
+const fadeIn = keyframes`
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 `;
