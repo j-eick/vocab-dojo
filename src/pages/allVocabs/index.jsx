@@ -8,6 +8,7 @@ import CloseIcon from '../../components/Icons/CloseIcon';
 import Layout from '../../components/Layout';
 import SafteyQuestionModal from '../../components/Modals/SafetyQuestion';
 import Textbox from '../../components/Texfield/Textbox';
+import Title from '../../components/Title';
 import {useFetch} from '../../hooks/useFetch';
 import {getAllFlashcards} from '../../services/vocabServices';
 
@@ -57,6 +58,7 @@ export default function VocabListPage({allFlashcards}) {
 					<CloseIcon
 						onClick={() => setShowSafetyQuestion_Modal(!showSafetyQuestion_Modal)}
 						size={1.5}
+						variant="close_icon"
 					/>
 					<p>Are you sure?</p>
 					<Button variant="deleteButton" onClick={deleteHandler}>
@@ -64,6 +66,8 @@ export default function VocabListPage({allFlashcards}) {
 					</Button>
 				</SafteyQuestionModal>
 			)}
+			<Title variant="allVocabs_Title">All Flashcards</Title>
+			{/* =====  LIST: Flashcards in stack  ===== */}
 			<StyledUl>
 				{flashcards.map(word => (
 					<StyledLi key={word.id}>
@@ -79,9 +83,20 @@ export default function VocabListPage({allFlashcards}) {
 						</StyledCard>
 					</StyledLi>
 				))}
+				{/* =====  MODAL: No flashcards, if no cards in stack  ===== */}
+				{flashcards.length === 0 ? (
+					<Textbox variant="no_flashcards_text" flashcards={flashcards}>
+						<p>
+							No flashcards. <br />
+							<br /> Create your first card by clicking the plus icon.
+						</p>
+					</Textbox>
+				) : null}
 			</StyledUl>
-			{/* {cardstackEmpty && <DeleteFlashcards onClick={deleteHandler} />} */}
-			<DeleteAllFlashcardsButton onClick={deletePromptHandler} />
+			{/* =====  MODAL: Safety-Question, before final removal of cards  ===== */}
+			{flashcards.length !== 0 ? (
+				<DeleteAllFlashcardsButton onClick={deletePromptHandler} />
+			) : null}
 		</Layout>
 	);
 }
@@ -91,10 +106,10 @@ export default function VocabListPage({allFlashcards}) {
 // #################################
 
 const StyledUl = styled.ul`
-	margin-top: 100px;
+	/* margin-top: 70px; */
 	padding: 30px 20px;
 	width: 80%;
-	height: 430px;
+	min-height: 150px;
 
 	display: flex;
 	flex-direction: column;
@@ -103,9 +118,8 @@ const StyledUl = styled.ul`
 	border-top: 3px solid #dde7f4;
 	border-bottom: 3px solid #dde7f4;
 
-	-ms-overflow-style: none;
 	scrollbar-width: none;
-	overflow-y: scroll;
+	overflow: auto;
 	gap: 25px;
 
 	&::-webkit-scrollbar {
