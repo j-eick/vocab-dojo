@@ -20,7 +20,7 @@ const StyledTextbox = styled.div`
 		css`
 			width: 100%;
 			height: 100px;
-			padding: 20px;
+			padding: 15px;
 
 			font-size: var(--fontsize_Textfield_text);
 

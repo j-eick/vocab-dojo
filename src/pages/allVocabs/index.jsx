@@ -7,7 +7,7 @@ import DeleteAllFlashcardsButton from '../../components/Button/DeleteFlashcardBu
 import CloseIcon from '../../components/Icons/CloseIcon';
 import Layout from '../../components/Layout';
 import SafteyQuestionModal from '../../components/Modals/SafetyQuestion';
-import Textbox from '../../components/Texfield/Textbox';
+import Textbox from '../../components/Textbox';
 import Title from '../../components/Title';
 import {useFetch} from '../../hooks/useFetch';
 import {getAllFlashcards} from '../../services/vocabServices';

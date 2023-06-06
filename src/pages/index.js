@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import Layout from '../components/Layout';
 import StartSession from '../components/Links/StartSessionLink';
-import Textfield from '../components/Texfield/Textbox';
+import Textbox from '../components/Textbox';
 import TextfieldArea from '../components/TextfieldArea';
 import Title from '../components/Title/index';
 
@@ -18,11 +18,11 @@ export default function HomePage() {
 
 			<TextfieldArea variant="textFieldArea">
 				<Title variant="Textbox_Title">Hard to remember</Title>
-				<Textfield variant="textfield_mainpage">Example 2</Textfield>
+				<Textbox variant="textfield_mainpage">Example 2</Textbox>
 			</TextfieldArea>
 			<TextfieldArea variant="textFieldArea">
 				<Title variant="Textbox_Title">Last Added</Title>
-				<Textfield variant="textfield_mainpage">Example</Textfield>
+				<Textbox variant="textfield_mainpage">Example</Textbox>
 			</TextfieldArea>
 
 			{/* #############   START SESSION   ################ */}
